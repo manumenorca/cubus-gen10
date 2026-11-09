@@ -1,0 +1,907 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Generación 10 Cubus</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap">
+<style>
+/* Layout: página de producto con la identidad de cubus-software.es; bandas a todo el ancho, contenido en 1200px, filas texto/imagen que se apilan en móvil */
+:root{
+  --indigo:#170E6C;      /* color de marca: textos y bandas oscuras */
+  --indigo-2:#20177C;    /* tarjetas sobre fondo índigo */
+  --line-dark:#3A3192;
+  --morado:#582189;      /* botones "+ info" de la web */
+  --rosa:#F9AFAF;        /* relleno de los iconos de programa */
+  --rosa-claro:#FDEBEB;
+  --gris:#F2F4F7;        /* fondo de bandas claras */
+  --texto-2:#464C5C;
+  --linea:#E3E1F0;
+  --blanco:#FFFFFF;
+  --sobre-indigo:#D9D6F2;
+  --font:'Lato', 'Helvetica Neue', Arial, sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--blanco);color:var(--indigo);font-family:var(--font);font-size:17px;line-height:1.55}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--morado)}
+a:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
+h1,h2,h3,h4{text-wrap:balance;margin:0}
+p{margin:0}
+.wrap{max-width:1200px;margin:0 auto;padding-left:max(16px, env(safe-area-inset-left, 0px));padding-right:max(16px, env(safe-area-inset-right, 0px))}
+.band{padding-block:clamp(64px,9vw,104px)}
+.band.gris{background:var(--gris)}
+.band.indigo{background:var(--indigo);color:var(--blanco)}
+.eyebrow{font-size:14px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--morado)}
+.indigo .eyebrow{color:var(--rosa)}
+.h2{font-size:clamp(30px,4.2vw,46px);line-height:1.12;font-weight:900}
+.lead{font-size:clamp(17px,1.7vw,20px);color:var(--texto-2);max-width:62ch}
+.indigo .lead{color:var(--sobre-indigo)}
+.head{display:flex;flex-direction:column;gap:16px;align-items:center;text-align:center}
+.head .lead{margin:0 auto}
+.btn{display:inline-flex;align-items:center;min-height:48px;padding:0 26px;border-radius:4px;font-weight:700;font-size:16px;text-decoration:none;border:2px solid transparent}
+.btn.primario{background:var(--morado);color:var(--blanco)}
+.btn.borde{border-color:var(--indigo);color:var(--indigo)}
+.btn.blanco{background:var(--blanco);color:var(--indigo)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.chip{font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:6px 12px;border-radius:4px;border:1px solid var(--linea);color:var(--indigo);background:var(--blanco)}
+.chip.rosa{background:var(--rosa);border-color:var(--rosa)}
+.chip.contorno{background:transparent;border-color:#8C84D0;color:var(--sobre-indigo)}
+.ph{background:var(--gris);border:1.5px dashed #9A95C4;border-radius:6px;min-height:200px;display:flex;align-items:center;justify-content:center;padding:20px;text-align:center;font-size:13px;color:var(--texto-2)}
+.ph b{display:block;color:var(--indigo);margin-bottom:4px}
+
+/* Cabecera */
+header.top{border-bottom:1px solid var(--linea);background:var(--blanco)}
+header.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 24px;padding-block:14px}
+header.top img{height:56px;width:auto}
+header nav{display:flex;flex-wrap:wrap;gap:6px 20px;font-weight:700;font-size:15px}
+header nav a{color:var(--indigo);text-decoration:none;padding-block:6px}
+
+/* Portada */
+.hero{padding-block:clamp(56px,8vw,88px) 0;text-align:center}
+.hero h1{font-size:clamp(34px,5.4vw,62px);line-height:1.08;font-weight:900;max-width:22ch;margin:18px auto 0}
+.hero .lead{margin:24px auto 0;max-width:60ch}
+.hero .acciones{margin-top:32px;display:flex;flex-wrap:wrap;gap:12px;justify-content:center}
+.hero figure{margin:40px auto 0;max-width:1240px}
+.hero figcaption{font-size:13px;color:var(--texto-2);text-align:right;margin-top:6px}
+
+/* PRIMUS */
+.primus h2{font-size:clamp(32px,4.6vw,54px);line-height:1.1;font-weight:900;max-width:20ch}
+.captura{margin:48px 0 0}
+.captura .marco{border-radius:6px;overflow:hidden;border:1px solid var(--line-dark);background:var(--blanco)}
+.captura figcaption{margin-top:12px;text-align:center;font-size:15px;color:#C7C2EA}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,290px),1fr));gap:18px}
+.tarjeta-osc{background:var(--indigo-2);border:1px solid var(--line-dark);border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:8px}
+.tarjeta-osc h3{font-size:20px;font-weight:700}
+.tarjeta-osc p{color:var(--sobre-indigo);font-size:16px}
+.ia{margin-top:72px;background:var(--blanco);color:var(--indigo);border-radius:8px;padding:clamp(28px,5vw,56px)}
+.ia h3{font-size:clamp(26px,3.4vw,40px);line-height:1.12;font-weight:900;margin-top:12px;max-width:24ch}
+.ia .lead{margin-top:18px;color:var(--texto-2)}
+.ia .eyebrow{color:var(--morado)}
+.pasos{margin-top:32px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,230px),1fr));gap:16px;counter-reset:paso}
+.paso{background:var(--gris);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.paso::before{counter-increment:paso;content:counter(paso);width:38px;height:38px;border-radius:50%;background:var(--indigo);color:var(--blanco);font-weight:900;display:flex;align-items:center;justify-content:center;margin-bottom:6px}
+.paso h4{font-size:18px;font-weight:700}
+.paso p{font-size:16px;color:var(--texto-2)}
+.ia .pie{margin-top:28px;padding-top:22px;border-top:1px solid var(--linea);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 40px;font-size:16px}
+.cita-pendiente{margin-top:48px;border:1.5px dashed #8C84D0;border-radius:6px;padding:28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
+.cita-pendiente p{color:var(--sobre-indigo);max-width:60ch}
+
+/* FAGUS */
+.fagus .feat{border-top:0;padding-block:40px 8px}
+.fagus .media .foto{padding:0;overflow:hidden}
+.fagus .lista-mejoras{margin-top:16px}
+.fagus .mejora a{font-weight:700}
+
+/* CEDRUS */
+.cedrus-intro{display:flex;flex-wrap:wrap;gap:24px 40px;align-items:center;justify-content:center;text-align:left}
+.cedrus-intro img{height:150px;width:auto}
+.cedrus-intro .txt{max-width:60ch;display:flex;flex-direction:column;gap:12px}
+.indice{margin-top:40px;display:flex;flex-wrap:wrap;gap:8px;justify-content:center}
+.indice a{font-size:14px;font-weight:700;color:var(--indigo);text-decoration:none;border:1px solid var(--linea);background:var(--blanco);border-radius:999px;padding:8px 14px}
+.feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:28px 48px;align-items:center;padding-block:48px;border-top:1px solid var(--linea)}
+.feat:first-of-type{border-top:0}
+.feat .txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+.feat h3{font-size:clamp(23px,2.4vw,28px);line-height:1.2;font-weight:900}
+.feat p,.feat li{font-size:17px;color:var(--texto-2)}
+.feat ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.mod{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--morado);background:#F1EBF7;border-radius:4px;padding:5px 10px}
+.media{display:grid;gap:14px;min-width:0}
+.media.dos{grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr))}
+.media figure{margin:0;display:flex;flex-direction:column;gap:6px}
+.media figcaption{font-size:13px;color:var(--texto-2);text-align:center}
+.media .foto{background:var(--blanco);border:1px solid var(--linea);border-radius:6px;padding:12px}
+.par-feat{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:20px;padding-block:40px;border-top:1px solid var(--linea)}
+.par-feat .item{display:flex;flex-direction:column;gap:10px}
+.par-feat h3{font-size:21px;font-weight:900}
+.par-feat p{color:var(--texto-2)}
+
+/* Para todos */
+.aviso-todos{margin-top:40px;background:var(--blanco);border:2px solid var(--indigo);border-radius:8px;padding:clamp(24px,4vw,40px);display:flex;flex-direction:column;gap:14px;align-items:center;text-align:center}
+.aviso-todos h3{font-size:clamp(22px,2.6vw,30px);font-weight:900}
+.aviso-todos p{color:var(--texto-2);max-width:60ch}
+.dos-grandes{margin-top:40px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:24px}
+.tarjeta{background:var(--blanco);border:1px solid var(--linea);border-radius:6px;overflow:hidden;display:flex;flex-direction:column}
+.tarjeta .img{height:260px;background:var(--gris);display:flex;align-items:center;justify-content:center;padding:24px;overflow:hidden}
+.tarjeta .img.cubre{padding:0}
+.tarjeta .img.cubre img{width:100%;height:100%;object-fit:cover;object-position:top}
+.tarjeta .img img.sombra{box-shadow:0 2px 12px rgba(23,14,108,.15)}
+.tarjeta .cuerpo{padding:26px;display:flex;flex-direction:column;gap:8px}
+.tarjeta h3{font-size:22px;font-weight:700}
+.tarjeta p{color:var(--texto-2)}
+.lista-mejoras{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:16px}
+.mejora{background:var(--blanco);border-radius:6px;padding:22px;display:flex;flex-direction:column;gap:6px}
+.mejora h4{font-size:18px;font-weight:700}
+.mejora p{font-size:16px;color:var(--texto-2)}
+.hardlock{margin-top:24px;background:var(--rosa-claro);border:1.5px solid var(--rosa);border-radius:6px;padding:24px 28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:space-between}
+.hardlock div{max-width:60ch;display:flex;flex-direction:column;gap:4px}
+.hardlock h3{font-size:19px;font-weight:900}
+.btn.indigo{background:var(--indigo);color:var(--blanco)}
+
+/* STATIK y LARIX */
+.feat.apilado{grid-template-columns:1fr;align-items:start}
+.feat.apilado .txt{max-width:75ch}
+.band.borde-sup{border-top:1px solid var(--linea)}
+.prog-sec .par-feat{border-top:1px solid var(--linea)}
+
+/* Programas */
+.programas{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:40px 32px}
+.prog{display:flex;flex-direction:column;gap:4px}
+.prog img{height:110px;width:auto;margin-bottom:14px}
+.prog h3{font-size:23px;font-weight:900}
+.prog .sub{font-size:15px;color:var(--texto-2);margin-bottom:12px}
+.prog ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:16px}
+.prog-nota{margin-top:48px;background:var(--gris);border-radius:6px;padding:24px 28px;display:flex;flex-wrap:wrap;gap:12px 24px;align-items:center;justify-content:space-between}
+.prog-nota p{max-width:62ch}
+
+/* Recibir */
+.planes{margin-top:48px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:24px}
+.plan{border-radius:6px;padding:clamp(26px,4vw,36px);background:var(--blanco);display:flex;flex-direction:column;gap:12px;border:1px solid var(--linea)}
+.plan.destacado{border:2px solid var(--indigo)}
+.plan h3{font-size:30px;font-weight:900}
+.plan ul{margin:0;padding-left:18px;display:flex;flex-direction:column;gap:8px;font-size:16px}
+.opiniones-t{margin-top:72px;text-align:center;font-size:24px;font-weight:700}
+.opiniones{margin-top:24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:20px}
+blockquote{margin:0;background:var(--blanco);border-radius:6px;padding:26px;display:flex;flex-direction:column;gap:12px}
+blockquote .comillas{font-size:40px;line-height:1;font-weight:900;color:var(--morado)}
+blockquote p{font-size:18px}
+blockquote footer{font-size:15px;font-weight:700;color:var(--texto-2)}
+
+/* Cierre */
+.cierre .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:32px}
+.cierre .izq{max-width:60ch;display:flex;flex-direction:column;gap:14px;align-items:flex-start}
+.contacto{display:flex;flex-direction:column;gap:4px;font-size:17px;color:var(--sobre-indigo)}
+.contacto strong{font-size:21px;color:var(--blanco)}
+.legal{border-top:1px solid var(--line-dark);background:var(--indigo)}
+.legal p{padding-block:18px;font-size:14px;color:#C7C2EA}
+/* Comparador M / M+N */
+.comparar{position:relative;border:1px solid var(--linea);border-radius:6px;overflow:hidden;background:#fff;touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.comparar>img{display:block;width:100%;height:auto}
+.comparar-izq{position:absolute;inset:0;clip-path:inset(0 calc(100% - var(--pos)) 0 0)}
+.comparar-izq img{display:block;width:100%;height:100%;object-fit:cover}
+.comparar-barra{position:absolute;top:0;bottom:0;left:var(--pos);width:0;pointer-events:none}
+.comparar-barra::before{content:"";position:absolute;top:0;bottom:0;left:-1.5px;width:3px;background:var(--indigo)}
+.comparar-barra span{position:absolute;top:50%;left:0;width:40px;height:40px;margin:-20px 0 0 -20px;border-radius:50%;background:var(--indigo);box-shadow:0 2px 8px rgba(23,14,108,.35)}
+.comparar-barra span::before,.comparar-barra span::after{content:"";position:absolute;top:50%;width:0;height:0;border:6px solid transparent;margin-top:-6px}
+.comparar-barra span::before{left:5px;border-right:7px solid #fff;border-left:0}
+.comparar-barra span::after{right:5px;border-left:7px solid #fff;border-right:0}
+.comparar-et{position:absolute;top:10px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--indigo);color:#fff;padding:4px 8px;border-radius:4px;pointer-events:none}
+.comparar-et.izq{left:10px}
+.comparar-et.der{right:10px}
+.comparar input{position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:ew-resize;-webkit-appearance:none;appearance:none}
+.comparar:has(input:focus-visible){outline:3px solid var(--rosa);outline-offset:3px}
+
+/* Franja de logos */
+.logos{position:relative;margin-top:24px;background:#fff;border:1px solid var(--linea);border-radius:8px;padding:28px 0;overflow:hidden}
+.logos::before,.logos::after{content:"";position:absolute;top:0;bottom:0;width:72px;z-index:1;pointer-events:none}
+.logos::before{left:0;background:linear-gradient(90deg,#fff,rgba(255,255,255,0))}
+.logos::after{right:0;background:linear-gradient(270deg,#fff,rgba(255,255,255,0))}
+.logos-pista{display:flex;width:max-content;animation:logos-desliza 90s linear infinite}
+.logos:hover .logos-pista{animation-play-state:paused}
+.logos-lista{display:flex;align-items:center;gap:56px;margin:0;padding:0 28px;list-style:none}
+.logos-lista li{flex:none;display:flex;align-items:center;height:80px}
+.logos-lista img{display:block;max-width:none}
+@keyframes logos-desliza{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){
+  .logos{padding:24px}
+  .logos::before,.logos::after{display:none}
+  .logos-pista{animation:none;width:auto}
+  .logos-lista{flex-wrap:wrap;justify-content:center;gap:24px 40px;padding:0}
+  .logos-lista[aria-hidden]{display:none}
+}
+
+/* Bloques de informes y Excel */
+.bloque{margin-top:32px;background:var(--blanco);border:1px solid var(--linea);border-radius:8px;padding:clamp(22px,4vw,44px)}
+.bloque+.bloque{margin-top:20px}
+.bloque .fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:28px 48px;align-items:center}
+.bloque .txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+.bloque h3{font-size:clamp(22px,2.6vw,30px);line-height:1.2;font-weight:900}
+.bloque p,.bloque li{font-size:17px;color:var(--texto-2)}
+.bloque ul{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:8px}
+.bloque figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.bloque .foto{border:1px solid var(--linea);border-radius:6px;overflow:hidden;background:#fff}
+.bloque figcaption{font-size:13px;color:var(--texto-2);text-align:center}
+.bloque figure.ancho{margin-top:24px}
+.paginas{margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,3vw,36px);padding:clamp(16px,3vw,32px);background:var(--gris);border-radius:6px}
+.paginas img{background:#fff;box-shadow:0 6px 22px rgba(23,14,108,.16)}
+
+/* Ampliar imágenes */
+.zoomable{cursor:zoom-in}
+.zoomable:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
+.visor{position:fixed;inset:0;z-index:100;background:rgba(10,6,48,.92);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:56px max(16px,env(safe-area-inset-left,0px)) 24px max(16px,env(safe-area-inset-right,0px))}
+.visor[hidden]{display:none!important}
+.visor img{max-width:100%;max-height:calc(100vh - 140px);width:auto;height:auto;background:#fff;border-radius:4px;box-shadow:0 10px 40px rgba(0,0,0,.4);cursor:zoom-out}
+.visor p{color:#E6E3F7;font-size:15px;text-align:center;max-width:80ch;min-height:1.4em}
+.visor button{position:absolute;background:rgba(255,255,255,.12);color:#fff;border:0;border-radius:50%;width:48px;height:48px;font:400 28px/1 var(--font);cursor:pointer;display:flex;align-items:center;justify-content:center}
+.visor button:hover{background:rgba(255,255,255,.24)}
+.visor button:focus-visible{outline:3px solid var(--rosa)}
+.visor .cerrar{top:12px;right:12px}
+.visor .ant{left:12px;top:50%;transform:translateY(-50%)}
+.visor .sig{right:12px;top:50%;transform:translateY(-50%)}
+@media (max-width:640px){.visor .ant,.visor .sig{top:auto;bottom:16px;transform:none}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+html{scroll-behavior:smooth}
+</style>
+
+<header class="top">
+  <div class="wrap">
+    <img src="img/logo.png" alt="Cubus Software España · 15 años" width="258" height="111">
+    <nav aria-label="Secciones">
+      <a href="#primus">PRIMUS</a>
+      <a href="#fagus">FAGUS</a>
+      <a href="#cedrus">CEDRUS</a>
+      <a href="#todos">Para todos</a>
+      <a href="#statik">STATIK</a>
+      <a href="#larix">LARIX</a>
+      <a href="#recibir">Cómo recibirla</a>
+    </nav>
+  </div>
+</header>
+
+<!-- PORTADA -->
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Generación 10 · Llega en 2027</p>
+    <h1>Más potencia para calcular estructuras. Y un programa nuevo para modelar puentes.</h1>
+    <p class="lead">La Generación 10 llega a todos los programas Cubus con mejoras para todos, secciones de madera frente al fuego en FAGUS, un gran salto en CEDRUS y una herramienta completamente nueva: PRIMUS, para crear modelos de STATIK escribiendo texto, también con ayuda de la inteligencia artificial. Si tienes ServicePlus, recibes la Generación 10 de tus programas sin coste adicional, y PRIMUS si además tienes STATIK.</p>
+    <div class="acciones">
+      <a class="btn primario" href="#primus">Descubre PRIMUS</a>
+      <a class="btn borde" href="#recibir">Cómo recibirla</a>
+    </div>
+  </div>
+  <figure class="wrap">
+    <img src="img/primus-puente.jpg" alt="Modelo 3D de un puente atirantado generado con PRIMUS" width="1600" height="758">
+    <figcaption>Puente atirantado modelado con PRIMUS</figcaption>
+  </figure>
+</section>
+
+<!-- PRIMUS -->
+<section id="primus" class="band indigo primus">
+  <div class="wrap">
+    <div class="head">
+      <div class="chips"><span class="chip rosa">Nuevo</span><span class="chip contorno">Para clientes con STATIK y ServicePlus</span></div>
+      <h2>PRIMUS. Todo el puente, en un archivo de texto.</h2>
+      <p class="lead">PRIMUS es el nuevo preprocesador de STATIK. Describes el puente (materiales, secciones, nodos, elementos, apoyos, fases constructivas, cargas, combinaciones y envolventes), lo ves en 3D al instante y PRIMUS genera el proyecto completo de STATIK, listo para calcular.</p>
+    </div>
+
+    <figure class="captura">
+      <div class="marco"><img src="img/primus-voladizos.jpg" data-full="img/grande/primus-voladizos.jpg" alt="PRIMUS: a la izquierda el archivo de texto con las secciones de cajón de canto variable; a la derecha el puente en 3D durante la construcción por voladizos sucesivos" width="1800" height="985"></div>
+      <figcaption>Ejemplo incluido en PRIMUS: puente de hormigón construido por voladizos sucesivos, de 72 + 112 + 72 m, en la fase constructiva 14 · 74 nodos · 75 elementos</figcaption>
+    </figure>
+
+    <div class="grid3" style="margin-top:56px">
+      <div class="tarjeta-osc"><h3>Texto y 3D, lado a lado</h3><p>Escribes a la izquierda y el modelo se actualiza a la derecha, con vista sombreada, render, secciones y tablas.</p></div>
+      <div class="tarjeta-osc"><h3>Variantes sin volver a dibujar</h3><p>Cambia una luz, un canto o una sección y regenera el modelo completo. Ideal para estudiar alternativas.</p></div>
+      <div class="tarjeta-osc"><h3>Secciones a tu medida</h3><p>Secciones paramétricas, poligonales o importadas directamente de FAGUS.</p></div>
+      <div class="tarjeta-osc"><h3>Pretensado y fases constructivas</h3><p>Trazado de tendones por puntos de control y proceso constructivo definido fase a fase.</p></div>
+      <div class="tarjeta-osc"><h3>Cargas móviles y acciones</h3><p>Cargas de tráfico y acciones definidas por el usuario, asignadas desde el propio archivo.</p></div>
+      <div class="tarjeta-osc"><h3>Combinaciones y envolventes, sin pasar por STATIK</h3><p>Defínelas directamente en PRIMUS. El modelo llega a STATIK completo y listo para calcular.</p></div>
+    </div>
+
+    <figure class="captura">
+      <div class="marco"><img src="img/primus-seccion-variable.jpg" data-full="img/grande/primus-seccion-variable.jpg" alt="PRIMUS: tablero de cajón de canto variable definido con una función y un bucle, con la sección dibujada a la derecha" width="1200" height="637" loading="lazy"></div>
+      <figcaption>Un tablero de cajón de canto variable: una función y un bucle generan todas las secciones en unas pocas líneas</figcaption>
+    </figure>
+
+    <div class="ia">
+      <p class="eyebrow">PRIMUS + inteligencia artificial</p>
+      <h3>Si el modelo es texto, la IA puede escribirlo contigo.</h3>
+      <p class="lead">Como en PRIMUS el modelo de STATIK se describe en un archivo de texto, puedes pedir a un asistente de inteligencia artificial que lo prepare a partir de la geometría, las cargas o la descripción del puente. Tú lo revisas en 3D, lo ajustas y calculas. El criterio sigue siendo del ingeniero; la IA se encarga de teclear.</p>
+      <div class="pasos">
+        <div class="paso"><h4>Describe el puente</h4><p>Luces, sección tipo, materiales, fases y cargas: con tus palabras o con tus propios datos.</p></div>
+        <div class="paso"><h4>La IA redacta el archivo</h4><p>Nodos, elementos, secciones, combinaciones y envolventes, en el formato de PRIMUS.</p></div>
+        <div class="paso"><h4>Revisas y calculas</h4><p>Compruebas el modelo en la vista 3D, corriges lo que haga falta y lo envías a STATIK.</p></div>
+      </div>
+      <div class="pie">
+        <p><strong>Ya hay ingenierías trabajando así en proyectos reales.</strong> [Fhecor, pendiente de su autorización para citarla]</p>
+        <p style="color:var(--texto-2)">Además, el archivo es la memoria del modelo: se revisa, se comparte y sirve de plantilla para el siguiente proyecto.</p>
+      </div>
+    </div>
+
+    <div class="cita-pendiente">
+      <p>[Espacio para la opinión de un cliente que ya trabaja con PRIMUS, pendiente de autorización]</p>
+      <a class="btn blanco" href="#contacto">Pide una demostración</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAGUS -->
+<section id="fagus" class="band gris fagus">
+  <div class="wrap">
+    <div class="cedrus-intro">
+      <img src="img/icon-fagus.png" alt="Icono de FAGUS" width="103" height="161">
+      <div class="txt">
+        <p class="eyebrow">FAGUS · Secciones</p>
+        <h2 class="h2">FAGUS, ahora también con madera y fuego</h2>
+        <p class="lead">Las secciones de madera se pueden analizar a altas temperaturas, el cortante y la torsión se definen con más claridad y FAGUS recibe más esfuerzos desde CEDRUS y STATIK. Además, se lleva todas las mejoras generales de la Generación 10.</p>
+      </div>
+    </div>
+
+    <div class="feat">
+      <div class="txt">
+        <span class="mod">Fuego y temperatura</span>
+        <h3>Secciones de madera a altas temperaturas</h3>
+        <p>FAGUS hace ahora el análisis térmico y mecánico de secciones de madera a altas temperaturas.</p>
+        <ul>
+          <li>Para la carga última con temperaturas elevadas, un nuevo método de seguimiento de trayectoria hace el cálculo no lineal más estable y eficiente.</li>
+          <li>Más opciones para introducir curvas temperatura–tiempo propias.</li>
+        </ul>
+      </div>
+      <div class="media">
+        <figure><div class="foto"><img src="img/fagus-madera-fuego.jpg" data-full="img/grande/fagus-madera-fuego.jpg" alt="Sección en T de madera: a la izquierda la malla de cálculo y a la derecha la distribución de temperaturas desde las caras expuestas" width="900" height="720" loading="lazy"></div><figcaption>Sección en T de madera: malla de cálculo y distribución de temperaturas</figcaption></figure>
+      </div>
+    </div>
+
+    <div class="lista-mejoras">
+      <div class="mejora"><h4>Cortante y torsión, más claros</h4><p>El modelo de cortante y torsión se elige según el tipo de sección y sus elementos de pared, y solo aparecen las opciones que encajan con tu sección. En secciones compactas, la torsión se puede aplicar en la sección base o en cada elemento de pared.</p></div>
+      <div class="mejora"><h4>Esfuerzos M+N desde CEDRUS</h4><p>Los esfuerzos del armado de láminas en plantas acopladas, que considera a la vez momentos y axiles, se pasan a FAGUS para comprobar las secciones en detalle.</p></div>
+      <div class="mejora"><h4>Muros con más casos de cálculo</h4><p>El dimensionamiento del armado de muros con FAGUS suma casos en la cabeza y el pie del muro, para estudiar mejor situaciones especiales de carga y conexión.</p></div>
+      <div class="mejora"><h4>Y todas las mejoras generales</h4><p>Tablas de resultados a Excel en un clic, informes a medida, CubusExplorer renovado y licencias Sentinel SoftLock. <a href="#todos">Ver mejoras generales</a></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CEDRUS -->
+<section id="cedrus" class="band">
+  <div class="wrap">
+    <div class="cedrus-intro">
+      <img src="img/icon-cedrus.png" alt="Icono de CEDRUS" width="104" height="161">
+      <div class="txt">
+        <p class="eyebrow">CEDRUS · Losas y edificación</p>
+        <h2 class="h2">La mayor puesta al día de CEDRUS en años</h2>
+        <p class="lead">Plantas acopladas más completas, armado específico para láminas, un visor 3D nuevo y muchas mejoras pensadas para el trabajo diario con edificios.</p>
+      </div>
+    </div>
+    <nav class="indice" aria-label="Novedades de CEDRUS">
+      <a href="#c-plantas">Plantas acopladas</a>
+      <a href="#c-visor">Visor 3D EdViG</a>
+      <a href="#c-flecha">Flecha fisurada</a>
+      <a href="#c-central">Cambios en todas las plantas</a>
+      <a href="#c-tablas">Tablas</a>
+      <a href="#c-ifc">IFC del armado</a>
+    </nav>
+
+    <div style="margin-top:32px">
+      <!-- Plantas acopladas: modelización -->
+      <div class="feat" id="c-plantas">
+        <div class="txt">
+          <span class="mod">Plantas acopladas</span>
+          <h3>Más opciones para modelizar el edificio completo</h3>
+          <p>El modelo de plantas acopladas admite ahora:</p>
+          <ul>
+            <li>Zonas de material ortótropas.</li>
+            <li>Zonas sin rigidez a torsión.</li>
+            <li>Pilares empotrados.</li>
+            <li>El modelo de apoyo por elementos.</li>
+          </ul>
+          <p>También trata mejor las pequeñas imprecisiones geométricas, por ejemplo las que vienen de una entrada en 2D.</p>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/cedrus-plantas-modelo.jpg" data-full="img/grande/cedrus-plantas-modelo.jpg" alt="Modelo de plantas acopladas de un edificio en CEDRUS" width="900" height="633" loading="lazy"></div><figcaption>Modelo de plantas acopladas</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-plantas-nvny.jpg" data-full="img/grande/cedrus-plantas-nvny.jpg" alt="Esfuerzos axiles nx y ny representados sobre losas y muros del edificio" width="900" height="696" loading="lazy"></div><figcaption>Esfuerzos nx, ny en el edificio</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Juntas losa-muro -->
+      <div class="feat">
+        <div class="txt">
+          <span class="mod">Plantas acopladas</span>
+          <h3>Cortante en las juntas entre losas y muros</h3>
+          <p>El acoplamiento de las deformaciones horizontales entre losas y muros influye mucho en el comportamiento de la estructura. Ahora se obtienen los esfuerzos cortantes en las juntas y su factor de utilización frente a la resistencia a cortante de la junta.</p>
+          <p>La colaboración entre el muro y las losas que acometen por arriba o por abajo se define en la losa de CEDRUS y se representa y comprueba en el modelo del edificio.</p>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/cedrus-junta-cd.jpg" alt="Muros con los esfuerzos cortantes en sus juntas con las losas" width="900" height="420" loading="lazy"></div></figure>
+          <figure><div class="foto"><img src="img/cedrus-junta-ed.jpg" data-full="img/grande/cedrus-junta-ed.jpg" alt="Factor de utilización a cortante en la junta entre muro y losas" width="900" height="433" loading="lazy"></div></figure>
+        </div>
+      </div>
+
+      <!-- Armado M+N -->
+      <div class="feat apilado">
+        <div class="txt">
+          <span class="mod">Plantas acopladas</span>
+          <h3>Armado de láminas con flexión y axil (M+N)</h3>
+          <p>El dimensionamiento del armado en plantas acopladas usa rutinas desarrolladas específicamente para láminas, que consideran a la vez momentos y axiles.</p>
+          <ul>
+            <li>Resultados en isolíneas y tablas, entre otros formatos.</li>
+            <li>Los esfuerzos se pueden pasar a FAGUS para comprobar secciones en detalle.</li>
+            <li>Desplazamientos y esfuerzos se transfieren más rápido del modelo de plantas acopladas a las losas, con un indicador de progreso por pasos.</li>
+          </ul>
+        </div>
+        <div class="media">
+          <figure>
+            <div class="comparar" style="--pos:50%">
+              <img src="img/grande/cedrus-armado-mn.jpg" alt="Isolíneas de armado de la losa dimensionada con momentos y axiles (M+N)" width="1239" height="536" loading="lazy">
+              <div class="comparar-izq" aria-hidden="true"><img src="img/grande/cedrus-armado-m.jpg" alt="" width="1239" height="536" loading="lazy"></div>
+              <span class="comparar-et izq">Solo M</span>
+              <span class="comparar-et der">M+N</span>
+              <div class="comparar-barra" aria-hidden="true"><span></span></div>
+              <input type="range" min="0" max="100" value="50" step="1" aria-label="Comparar el armado con solo M (izquierda) y con M+N (derecha)">
+            </div>
+            <figcaption>Arrastra la barra para comparar el armado con solo M y con M+N</figcaption>
+          </figure>
+        </div>
+      </div>
+
+      <!-- Visor EdViG -->
+      <div class="feat" id="c-visor">
+        <div class="txt">
+          <span class="mod">Nuevo visor 3D</span>
+          <h3>EdViG: el edificio en 3D, con renderizado</h3>
+          <p>Un visor desarrollado desde cero y vinculado a los edificios de CEDRUS.</p>
+          <ul>
+            <li>Los filtros de siempre (plantas, elementos, nombres…) más vistas explosionadas por plantas y planos de corte.</li>
+            <li>Modo «On-Hover»: ves el efecto de un filtro con solo pasar el ratón por encima del botón.</li>
+            <li>Respuesta inmediata incluso en edificios muy grandes, gracias a la aceleración gráfica de las tarjetas actuales.</li>
+            <li>Muestra el modelo de cálculo a lo largo de los ejes usados en el análisis por elementos finitos.</li>
+            <li>Isolíneas de alta precisión con nuevos algoritmos de interpolación, e isolínea dinámica en tiempo real sobre la estructura deformada.</li>
+          </ul>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/cedrus-volumen-ejes.jpg" data-full="img/grande/cedrus-volumen-ejes.jpg" alt="Edificio en el visor 3D con el volumen y los ejes del modelo de cálculo" width="900" height="894" loading="lazy"></div><figcaption>Volumen y ejes del modelo</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-isolineas.jpg" alt="Isolíneas sobre las losas de un edificio en el visor 3D" width="634" height="560"></div><figcaption>Isolíneas en el visor 3D</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Flecha fisurada -->
+      <div class="feat" id="c-flecha">
+        <div class="txt">
+          <span class="mod">Módulo base</span>
+          <h3>Flecha fisurada más realista</h3>
+          <p>El estado fisurado que determina la rigidez puede venir de una combinación distinta de la que se usa para verificar la flecha. Ahora se indican por separado: por ejemplo, la combinación característica para la fisuración y la frecuente o la cuasipermanente para calcular la flecha.</p>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/cedrus-flecha-dialogo.jpg" alt="Diálogo de cálculo de flecha con combinaciones distintas para la fisuración y para la flecha" width="263" height="409" loading="lazy"></div><figcaption>Combinación para fisurar y para la flecha</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-flecha-isolineas.jpg" data-full="img/grande/cedrus-flecha-isolineas.jpg" alt="Isolíneas de flecha fisurada sobre una losa en CEDRUS" width="900" height="762" loading="lazy"></div><figcaption>Flecha fisurada en isolíneas</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- Cambios centralizados -->
+      <div class="feat" id="c-central">
+        <div class="txt">
+          <span class="mod">Módulo G</span>
+          <h3>Cambios en todas las plantas de una vez</h3>
+          <p>Una de las peticiones más repetidas: zonas de material, zonas de malla, vigas descolgadas, pilares y muros se pueden editar a la vez en varias plantas. Por ejemplo, cambiar las condiciones de apoyo de todos los pilares del edificio o ajustar el canto de todas las losas.</p>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/cedrus-cambios-plantas.jpg" data-full="img/grande/cedrus-cambios-plantas.jpg" alt="Edición conjunta de elementos en varias plantas del edificio" width="900" height="606" loading="lazy"></div></figure>
+        </div>
+      </div>
+
+      <!-- Tablas -->
+      <div class="feat" id="c-tablas">
+        <div class="txt">
+          <span class="mod">Módulos G y H</span>
+          <h3>Tablas más ágiles</h3>
+          <ul>
+            <li><strong>Tabla de plantas:</strong> selección de varias filas y cambio de propiedades en un solo paso. Las plantas se pueden desvincular de su planta maestra y volver a vincular.</li>
+            <li><strong>Tabla de cargas horizontales:</strong> copiar y pegar varias celdas y filas, también desde y hacia Excel.</li>
+            <li><strong>Tabla de modelos de barras:</strong> nueva función de comparación que muestra con qué parámetros se generó cada modelo y en qué se diferencian.</li>
+          </ul>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/cedrus-cargas-horizontales.jpg" alt="Tabla de cargas horizontales con celdas pegadas desde Excel" width="610" height="901" loading="lazy"></div><figcaption>Cargas horizontales desde Excel</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-modelos-barras.jpg" alt="Comparación de los parámetros de tres modelos de barras" width="612" height="696" loading="lazy"></div><figcaption>Comparación de modelos de barras</figcaption></figure>
+        </div>
+      </div>
+
+      <!-- IFC -->
+      <div class="feat" id="c-ifc">
+        <div class="txt">
+          <span class="mod">Módulo de armado</span>
+          <h3>El armado de CEDRUS, exportado a IFC</h3>
+          <p>El armado del módulo de armado de CEDRUS se exporta ahora en formato IFC. La función se ha desarrollado en colaboración con Allplan.</p>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/cedrus-ifc-cedrus.jpg" data-full="img/grande/cedrus-ifc-cedrus.jpg" alt="Armado de una losa en planta en CEDRUS" width="900" height="827" loading="lazy"></div><figcaption>En CEDRUS</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-ifc-bim.jpg" data-full="img/grande/cedrus-ifc-bim.jpg" alt="El mismo armado exportado a IFC en un visor BIM" width="900" height="529" loading="lazy"></div><figcaption>En el visor BIM</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="par-feat">
+      <div class="item">
+        <span class="mod">Módulo base</span>
+        <h3>Exportación de datos ampliada</h3>
+        <p>La información de la malla de elementos finitos se exporta directamente a Excel. Así puedes asociar los datos de otras tablas de resultados a sus nodos y elementos, y cruzar resultados.</p>
+      </div>
+      <div class="item">
+        <span class="mod">Muros</span>
+        <h3>Dimensionamiento de muros ampliado</h3>
+        <p>El armado de muros con FAGUS incorpora nuevos casos en la cabeza y el pie del muro, para estudiar con más detalle situaciones especiales de carga y conexión.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PARA TODOS -->
+<section id="todos" class="band gris">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Para todos los programas</p>
+      <h2 class="h2">Mejoras que notarás en cada programa</h2>
+      <p class="lead">La base técnica de todos los programas Cubus se ha revisado a fondo. Estas mejoras llegan a todos, sea cual sea tu licencia.</p>
+      <div class="chips"><span class="chip">CEDRUS</span><span class="chip">STATIK</span><span class="chip">FAGUS</span><span class="chip">LARIX</span><span class="chip">PYRUS</span><span class="chip">AVENA</span></div>
+    </div>
+
+    <div class="aviso-todos">
+      <h3>¿Trabajas con PYRUS o AVENA? La Generación 10 también es para ti.</h3>
+      <p>Con ServicePlus recibes todas estas mejoras generales: programas más fiables, exportación a Excel, informes a medida, gestión de proyectos renovada y licencias más flexibles.</p>
+    </div>
+
+    <article class="bloque" id="informes">
+      <div class="fila">
+        <div class="txt">
+          <h3>Informes de cálculo a medida</h3>
+          <p>Monta el informe tal como lo entregarías: portada, capítulos numerados, índice automático, tus propios textos con formato y las salidas de cálculo de siempre.</p>
+          <ul>
+            <li>Al definir un capítulo, las tablas que siguen se numeran como apartados de ese capítulo.</li>
+            <li>Tus textos se editan directamente en el informe y se conservan al actualizar los cálculos.</li>
+            <li>El informe se guarda y se comparte junto con sus textos e imágenes.</li>
+            <li>La impresión se ha modernizado.</li>
+          </ul>
+        </div>
+        <figure><div class="foto"><img src="img/informe-composicion.jpg" alt="Ventana de composición del informe: lista de entradas con portada, índice, capítulos y salidas de cálculo, y vista previa de la portada" width="990" height="578" loading="lazy"></div><figcaption>La composición del informe</figcaption></figure>
+      </div>
+      <div class="paginas">
+        <figure><img src="img/informe-portada.jpg" data-full="img/grande/informe-portada.jpg" alt="Portada del informe con el título, una vista 3D del edificio y los datos del proyecto" width="600" height="849" loading="lazy"><figcaption>Portada</figcaption></figure>
+        <figure><img src="img/informe-indice.jpg" data-full="img/grande/informe-indice.jpg" alt="Índice automático del informe con capítulos y apartados numerados" width="600" height="849" loading="lazy"><figcaption>Índice automático</figcaption></figure>
+        <figure><img src="img/informe-comentarios.jpg" data-full="img/grande/informe-comentarios.jpg" alt="Página de resultados con isolíneas y un comentario propio con formato debajo" width="600" height="849" loading="lazy"><figcaption>Resultados con tus comentarios</figcaption></figure>
+      </div>
+    </article>
+
+    <article class="bloque" id="excel">
+      <div class="fila">
+        <div class="txt">
+          <h3>Resultados a Excel en un clic</h3>
+          <p>Todos los programas exportan todas sus tablas de resultados a Excel, con su formato, sus etiquetas y sus explicaciones. Sin copiar y pegar.</p>
+        </div>
+        <figure><div class="foto"><img src="img/excel-programa.jpg" data-full="img/grande/excel-programa.jpg" alt="Ventana de datos de estructura con varias tablas seleccionadas para exportar" width="600" height="718" loading="lazy"></div><figcaption>Las tablas, en el programa…</figcaption></figure>
+      </div>
+      <figure class="ancho"><div class="foto"><img src="img/excel-resultado.jpg" alt="La tabla de materiales exportada a Excel, con sus unidades y una pestaña por tabla" width="1140" height="240" loading="lazy"></div><figcaption>…y en Excel, con su formato y una pestaña por tabla</figcaption></figure>
+    </article>
+
+    <div class="lista-mejoras">
+      <div class="mejora"><h4>Arranque y cierre más fiables</h4><p>El inicio, el cierre y los procesos comunes a todos los programas funcionan de forma más robusta, también en sesiones largas y al cambiar entre programas.</p></div>
+      <div class="mejora"><h4>Tu trabajo, más protegido</h4><p>Si una operación no puede completarse o se cancela, el modelo queda en un estado coherente.</p></div>
+      <div class="mejora"><img src="img/todos-modelos-grandes.jpg" data-full="img/grande/todos-modelos-grandes.jpg" alt="Modelo 3D de un proyecto muy grande con varios edificios" width="900" height="450" loading="lazy" style="border-radius:4px;margin-bottom:8px"><h4>Modelos grandes sin sobresaltos</h4><p>Funcionamiento estable y más velocidad en proyectos muy grandes, de la entrada al cálculo y el dimensionamiento.</p></div>
+      <div class="mejora"><h4>CubusExplorer renovado</h4><p>Proyectos y cálculos con vista previa, estado y fecha. Crear, copiar, mover, archivar o borrar proyectos es más seguro y muestra su progreso.</p></div>
+      <div class="mejora"><h4>Inicio y navegación mejorados</h4><p>Mejores vistas previas al empezar, tablas de resultados más legibles y mejor escalado de las ventanas.</p></div>
+      <div class="mejora"><h4>Sentinel SoftLock</h4><p>Licencia por software, vinculada a un equipo físico o virtual. Ideal para servidores y entornos virtualizados, sin puerto USB ni llave.</p></div>
+    </div>
+
+    <div class="hardlock">
+      <div>
+        <h3>¿Aún usas una llave Hardlock?</h3>
+        <p>La Generación 10 solo funciona con protección Sentinel. Escríbenos y gestionamos el cambio de tu llave.</p>
+      </div>
+      <a class="btn indigo" href="https://cubus-software.es/migracion-sentinel">Migración a Sentinel</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATIK -->
+<section id="statik" class="band prog-sec">
+  <div class="wrap">
+    <div class="cedrus-intro">
+      <img src="img/icon-statik.png" alt="Icono de STATIK" width="103" height="161">
+      <div class="txt">
+        <p class="eyebrow">STATIK · Puentes y estructuras de barras</p>
+        <h2 class="h2">STATIK calcula y documenta por sí solo</h2>
+        <p class="lead">Los modelos se generan con <a href="#primus">PRIMUS</a>. Además, STATIK se puede lanzar desde la línea de comandos para calcular y documentar variantes de forma automática, e incorpora enlaces elásticos en nodos dobles.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:32px">
+      <div class="feat">
+        <div class="txt">
+          <span class="mod">Automatización</span>
+          <h3>Cálculo e informe automáticos desde la línea de comandos</h3>
+          <p>Un informe preparado indica qué cálculos y salidas hay que hacer. STATIK se arranca desde la línea de comandos, actualiza ese informe y se cierra solo.</p>
+          <p>Junto con la generación de modelos por script en Python, puedes calcular y documentar varias variantes con el mismo criterio. Los informes resultantes quedan listos para compararlos y evaluarlos con tus propios scripts.</p>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/statik-python-codigo.jpg" data-full="img/grande/statik-python-codigo.jpg" alt="Script de Python que genera un pórtico con un tendón de postesado y lanza STATIK" width="900" height="960" loading="lazy"></div><figcaption>El script de Python</figcaption></figure>
+          <figure><div class="foto"><img src="img/statik-python-portico3d.jpg" data-full="img/grande/statik-python-portico3d.jpg" alt="Estructura de barras en 3D generada por script en STATIK" width="900" height="541" loading="lazy"></div><figcaption>El modelo en STATIK</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="txt">
+          <span class="mod">Nodos dobles</span>
+          <h3>Enlaces elásticos en nodos dobles</h3>
+          <p>Un enlace une los dos nodos de un nodo doble con muelles de longitud cero, con la rigidez que des a cada desplazamiento y giro. Sirve, entre otras cosas, para modelar uniones especiales en estructuras de acero y madera, como las uniones en tijera.</p>
+          <p>Las fuerzas en los muelles se ven gráfica y numéricamente en los resultados, y los enlaces también se consideran en los análisis a largo plazo.</p>
+        </div>
+        <div class="media" style="max-width:340px;justify-self:center">
+          <figure><div class="foto"><img src="img/statik-nodo-doble.jpg" alt="Diálogo de enlace para nodos dobles con rigideces en DZ, RY y RZ" width="535" height="704" loading="lazy"></div><figcaption>Enlace para nodos dobles</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="par-feat">
+      <div class="item">
+        <span class="mod">Muros</span>
+        <h3>Dimensionamiento de muros ampliado</h3>
+        <p>El armado de muros con FAGUS suma casos en la cabeza y el pie del muro, para estudiar con más detalle situaciones especiales de carga y conexión.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LARIX -->
+<section id="larix" class="band borde-sup prog-sec">
+  <div class="wrap">
+    <div class="cedrus-intro">
+      <img src="img/icon-larix.png" alt="Icono de LARIX" width="104" height="161">
+      <div class="txt">
+        <p class="eyebrow">LARIX · Geotecnia</p>
+        <h2 class="h2">LARIX: más control sobre muros claveteados y taludes</h2>
+        <p class="lead">Apoyos lineales, una nueva pestaña de dimensionamiento, isolíneas configurables, más resultados del método de las rebanadas e informes que se generan solos.</p>
+      </div>
+    </div>
+
+    <div style="margin-top:32px">
+      <div class="feat apilado">
+        <div class="txt">
+          <span class="mod">Muro claveteado</span>
+          <h3>Apoyos lineales y líneas de simetría</h3>
+          <p>El módulo de muro claveteado incorpora un apoyo lineal, que se coloca en el alzado y puede ser elástico. Permite tener en cuenta, por ejemplo, muros claveteados unidos lateralmente. El apoyo se considera solo en el dimensionamiento del muro. En tramos simétricos, las líneas de simetría se pueden fijar como condición de contorno.</p>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/larix-apoyo-lineal.jpg" data-full="img/grande/larix-apoyo-lineal.jpg" alt="Modelo 3D de un muro claveteado y su alzado con un apoyo lineal y los niveles de bulones" width="1200" height="426" loading="lazy"></div><figcaption>Muro claveteado con apoyo lineal</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="txt">
+          <span class="mod">Estabilidad de taludes</span>
+          <h3>Nueva pestaña de dimensionamiento</h3>
+          <p>Como ya tenía el muro claveteado, el módulo de estabilidad de taludes suma una pestaña «Dimensionamiento». Analiza cómo influyen la longitud, la fuerza y la separación de anclajes, bulones y elementos de adherencia en la estabilidad, y lo muestra en un diagrama para comprobar la eficacia de las medidas y optimizar el dimensionamiento.</p>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/larix-dimensionamiento.jpg" data-full="img/grande/larix-dimensionamiento.jpg" alt="Pestaña de dimensionamiento con el diagrama de la influencia de un parámetro en el factor de seguridad" width="900" height="555" loading="lazy"></div><figcaption>Pestaña «Dimensionamiento»</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="txt">
+          <span class="mod">Muro claveteado y taludes</span>
+          <h3>Isolíneas más fáciles de leer</h3>
+          <p>En los módulos de muro claveteado y estabilidad de taludes, las isolíneas tienen colores bien definidos y ajustables, lo que facilita interpretar los resultados de estabilidad.</p>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/larix-isolineas.jpg" data-full="img/grande/larix-isolineas.jpg" alt="Isolíneas del factor de seguridad sobre un talud, con la zona crítica en rojo" width="900" height="589" loading="lazy"></div><figcaption>Isolíneas de estabilidad</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat apilado">
+        <div class="txt">
+          <span class="mod">Método de las rebanadas</span>
+          <h3>Más resultados en los análisis de estabilidad</h3>
+          <ul>
+            <li>Se representa la distribución de fuerzas a lo largo de todos los elementos resistentes: bulones, anclajes, elementos de adherencia y resistencias a cortante.</li>
+            <li>En el cruce de cada línea de rotura con un elemento resistente se muestra la fuerza de cálculo considerada y su influencia en la seguridad.</li>
+            <li>Para cada línea de rotura se pueden dibujar sus rebanadas, lo que ayuda a valorar la calidad de los resultados y a optimizar cuántas hacen falta. Sus parámetros principales están en los resultados numéricos.</li>
+          </ul>
+        </div>
+        <div class="media dos">
+          <figure><div class="foto"><img src="img/larix-fuerzas.jpg" data-full="img/grande/larix-fuerzas.jpg" alt="Distribución de fuerzas a lo largo de los anclajes de un talud" width="1200" height="497" loading="lazy"></div><figcaption>Fuerzas en los elementos resistentes</figcaption></figure>
+          <figure><div class="foto"><img src="img/larix-laminillas.jpg" data-full="img/grande/larix-laminillas.jpg" alt="Rebanadas de una línea de rotura dibujadas sobre el talud" width="900" height="538" loading="lazy"></div><figcaption>Rebanadas de una línea de rotura</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat">
+        <div class="txt">
+          <span class="mod">Informes</span>
+          <h3>Informe de cálculo generado automáticamente</h3>
+          <p>En los módulos de muro claveteado, estabilidad de taludes, muro de contención y excavación se genera un informe con todos los datos de entrada y los resultados principales. En un diálogo eliges qué incluye, y luego puedes editar, añadir o borrar entradas.</p>
+          <p>Además, en los resultados del muro claveteado se dibujan las placas de cabeza de bulones y anclajes, para ver dónde y en qué superficie entran sus fuerzas en el muro.</p>
+        </div>
+        <div class="media" style="max-width:320px;justify-self:center">
+          <figure><div class="foto"><img src="img/larix-informe.jpg" alt="Diálogo para elegir el contenido del informe de cálculo de LARIX" width="552" height="921" loading="lazy"></div><figcaption>Contenido del informe</figcaption></figure>
+        </div>
+      </div>
+    </div>
+
+    <div class="prog-nota">
+      <p><strong>PYRUS y AVENA</strong> reciben todas las mejoras generales de la Generación 10: fiabilidad, exportación a Excel, informes, CubusExplorer y licencias.</p>
+      <a class="btn borde" href="#todos">Ver mejoras generales</a>
+    </div>
+  </div>
+</section>
+
+<!-- RECIBIR -->
+<section id="recibir" class="band gris">
+  <div class="wrap">
+    <div class="head">
+      <p class="eyebrow">Cómo recibirla</p>
+      <h2 class="h2">Con ServicePlus, la Generación 10 ya es tuya</h2>
+    </div>
+    <div class="planes">
+      <div class="plan destacado">
+        <p class="eyebrow">Soporte Premium</p>
+        <h3>ServicePlus</h3>
+        <p>Recibes la Generación 10 de todos tus programas automáticamente y sin coste adicional. Si además tienes STATIK, también recibes PRIMUS.</p>
+        <ul>
+          <li>Cambio de generación incluido.</li>
+          <li>Soporte preferente, con respuesta en una jornada laboral.</li>
+          <li>Revisión de tus modelos por nuestros ingenieros.</li>
+          <li>Soporte remoto con pantalla compartida.</li>
+        </ul>
+      </div>
+      <div class="plan">
+        <p class="eyebrow" style="color:var(--texto-2)">Soporte Básico</p>
+        <h3>Update Service</h3>
+        <p>Te preparamos una propuesta para actualizar a la Generación 10 o pasar a ServicePlus. Si tienes STATIK, con ServicePlus recibes también PRIMUS.</p>
+        <a class="btn primario" href="#contacto" style="align-self:flex-start;margin-top:8px">Pide tu propuesta</a>
+      </div>
+    </div>
+
+    <h3 class="opiniones-t">Nuestros clientes opinan de nuestro Soporte Técnico</h3>
+    <div class="opiniones">
+      <blockquote><span class="comillas" aria-hidden="true">“</span><p>Estoy encantado con el servicio premium.</p><footer>Fernando Cea Soriano · Typsa</footer></blockquote>
+      <blockquote><span class="comillas" aria-hidden="true">“</span><p>SIEMPRE he tenido un soporte excelente con el servicio técnico de CUBUS.</p><footer>Antonio Jesús Díaz Moreno · Ayesa</footer></blockquote>
+      <blockquote><span class="comillas" aria-hidden="true">“</span><p>Muy bien Cubus España. Rápido y soporte personalizado. Totalmente recomendable!</p><footer>Alberto Brusa · IDEAM</footer></blockquote>
+    </div>
+
+    <h3 class="opiniones-t">Confían en nosotros…</h3>
+    <div class="logos" role="region" aria-label="Algunos de nuestros clientes">
+      <div class="logos-pista">
+        <ul class="logos-lista">
+          <li><img src="img/logos/typsa.jpg" alt="TYPSA" width="152" height="46" loading="lazy"></li>
+          <li><img src="img/logos/ineco.jpg" alt="INECO" width="179" height="40" loading="lazy"></li>
+          <li><img src="img/logos/idom.jpg" alt="IDOM" width="168" height="41" loading="lazy"></li>
+          <li><img src="img/logos/acciona.jpg" alt="ACCIONA" width="122" height="52" loading="lazy"></li>
+          <li><img src="img/logos/sener.jpg" alt="SENER" width="187" height="39" loading="lazy"></li>
+          <li><img src="img/logos/fhecor.jpg" alt="FHECOR" width="199" height="38" loading="lazy"></li>
+          <li><img src="img/logos/ines-ingenieros.jpg" alt="INES Ingenieros" width="106" height="57" loading="lazy"></li>
+          <li><img src="img/logos/pondio.jpg" alt="Pondio Ingenieros" width="74" height="73" loading="lazy"></li>
+          <li><img src="img/logos/ideam.jpg" alt="IDEAM" width="122" height="52" loading="lazy"></li>
+          <li><img src="img/logos/ayesa.jpg" alt="Ayesa" width="213" height="37" loading="lazy"></li>
+          <li><img src="img/logos/esteyco.jpg" alt="Esteyco" width="155" height="44" loading="lazy"></li>
+          <li><img src="img/logos/torroja-ingenieria.jpg" alt="Torroja Ingeniería" width="192" height="39" loading="lazy"></li>
+          <li><img src="img/logos/proes.jpg" alt="Proes" width="146" height="47" loading="lazy"></li>
+          <li><img src="img/logos/fcc.jpg" alt="FCC" width="102" height="59" loading="lazy"></li>
+          <li><img src="img/logos/sacyr.jpg" alt="Sacyr" width="166" height="43" loading="lazy"></li>
+          <li><img src="img/logos/ferrovial.jpg" alt="Ferrovial" width="176" height="40" loading="lazy"></li>
+          <li><img src="img/logos/dragados.jpg" alt="Dragados" width="112" height="55" loading="lazy"></li>
+          <li><img src="img/logos/ohl.jpg" alt="OHL" width="116" height="54" loading="lazy"></li>
+          <li><img src="img/logos/comsa.jpg" alt="COMSA" width="98" height="61" loading="lazy"></li>
+          <li><img src="img/logos/freyssinet.jpg" alt="Freyssinet" width="113" height="55" loading="lazy"></li>
+          <li><img src="img/logos/vsl.jpg" alt="VSL" width="129" height="51" loading="lazy"></li>
+          <li><img src="img/logos/arup.jpg" alt="Arup" width="148" height="46" loading="lazy"></li>
+          <li><img src="img/logos/aecom.jpg" alt="AECOM" width="156" height="44" loading="lazy"></li>
+          <li><img src="img/logos/mott-macdonald.jpg" alt="Mott MacDonald" width="79" height="70" loading="lazy"></li>
+          <li><img src="img/logos/egis.jpg" alt="Egis" width="126" height="51" loading="lazy"></li>
+          <li><img src="img/logos/getinsa-euroestudios.jpg" alt="Getinsa-Euroestudios" width="133" height="49" loading="lazy"></li>
+          <li><img src="img/logos/intemac.jpg" alt="INTEMAC" width="91" height="63" loading="lazy"></li>
+          <li><img src="img/logos/calter.jpg" alt="Calter" width="117" height="53" loading="lazy"></li>
+          <li><img src="img/logos/saitec.jpg" alt="Saitec" width="122" height="52" loading="lazy"></li>
+          <li><img src="img/logos/upc.jpg" alt="UPC" width="85" height="67" loading="lazy"></li>
+          <li><img src="img/logos/universidad-politecnica-de-madrid.jpg" alt="Universidad Politécnica de Madrid" width="70" height="76" loading="lazy"></li>
+        </ul>
+        <ul class="logos-lista" aria-hidden="true">
+          <li><img src="img/logos/typsa.jpg" alt="" width="152" height="46" loading="lazy"></li>
+          <li><img src="img/logos/ineco.jpg" alt="" width="179" height="40" loading="lazy"></li>
+          <li><img src="img/logos/idom.jpg" alt="" width="168" height="41" loading="lazy"></li>
+          <li><img src="img/logos/acciona.jpg" alt="" width="122" height="52" loading="lazy"></li>
+          <li><img src="img/logos/sener.jpg" alt="" width="187" height="39" loading="lazy"></li>
+          <li><img src="img/logos/fhecor.jpg" alt="" width="199" height="38" loading="lazy"></li>
+          <li><img src="img/logos/ines-ingenieros.jpg" alt="" width="106" height="57" loading="lazy"></li>
+          <li><img src="img/logos/pondio.jpg" alt="" width="74" height="73" loading="lazy"></li>
+          <li><img src="img/logos/ideam.jpg" alt="" width="122" height="52" loading="lazy"></li>
+          <li><img src="img/logos/ayesa.jpg" alt="" width="213" height="37" loading="lazy"></li>
+          <li><img src="img/logos/esteyco.jpg" alt="" width="155" height="44" loading="lazy"></li>
+          <li><img src="img/logos/torroja-ingenieria.jpg" alt="" width="192" height="39" loading="lazy"></li>
+          <li><img src="img/logos/proes.jpg" alt="" width="146" height="47" loading="lazy"></li>
+          <li><img src="img/logos/fcc.jpg" alt="" width="102" height="59" loading="lazy"></li>
+          <li><img src="img/logos/sacyr.jpg" alt="" width="166" height="43" loading="lazy"></li>
+          <li><img src="img/logos/ferrovial.jpg" alt="" width="176" height="40" loading="lazy"></li>
+          <li><img src="img/logos/dragados.jpg" alt="" width="112" height="55" loading="lazy"></li>
+          <li><img src="img/logos/ohl.jpg" alt="" width="116" height="54" loading="lazy"></li>
+          <li><img src="img/logos/comsa.jpg" alt="" width="98" height="61" loading="lazy"></li>
+          <li><img src="img/logos/freyssinet.jpg" alt="" width="113" height="55" loading="lazy"></li>
+          <li><img src="img/logos/vsl.jpg" alt="" width="129" height="51" loading="lazy"></li>
+          <li><img src="img/logos/arup.jpg" alt="" width="148" height="46" loading="lazy"></li>
+          <li><img src="img/logos/aecom.jpg" alt="" width="156" height="44" loading="lazy"></li>
+          <li><img src="img/logos/mott-macdonald.jpg" alt="" width="79" height="70" loading="lazy"></li>
+          <li><img src="img/logos/egis.jpg" alt="" width="126" height="51" loading="lazy"></li>
+          <li><img src="img/logos/getinsa-euroestudios.jpg" alt="" width="133" height="49" loading="lazy"></li>
+          <li><img src="img/logos/intemac.jpg" alt="" width="91" height="63" loading="lazy"></li>
+          <li><img src="img/logos/calter.jpg" alt="" width="117" height="53" loading="lazy"></li>
+          <li><img src="img/logos/saitec.jpg" alt="" width="122" height="52" loading="lazy"></li>
+          <li><img src="img/logos/upc.jpg" alt="" width="85" height="67" loading="lazy"></li>
+          <li><img src="img/logos/universidad-politecnica-de-madrid.jpg" alt="" width="70" height="76" loading="lazy"></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CIERRE -->
+<section id="contacto" class="band indigo cierre">
+  <div class="wrap">
+    <div class="izq">
+      <p class="eyebrow">Webinar de presentación · [FECHA]</p>
+      <h2 class="h2">Míralo en directo</h2>
+      <p class="lead">Te enseñamos PRIMUS y las novedades de la Generación 10 con modelos reales, y resolvemos tus dudas.</p>
+      <a class="btn blanco" href="#contacto">Reserva tu plaza</a>
+    </div>
+    <div class="contacto">
+      <strong>+34 851 000 350</strong>
+      <span>info@cubus-software.es</span>
+      <span>soporte@cubus-software.es</span>
+    </div>
+  </div>
+</section>
+<div class="legal"><div class="wrap"><p>Cubus-Software España · Distribuidor exclusivo de los programas Cubus en España, Portugal y América · Ciutadella de Menorca</p></div></div>
+
+
+<div class="visor" id="visor" hidden role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+  <button class="cerrar" type="button" aria-label="Cerrar">×</button>
+  <button class="ant" type="button" aria-label="Imagen anterior">‹</button>
+  <img alt="">
+  <p></p>
+  <button class="sig" type="button" aria-label="Imagen siguiente">›</button>
+</div>
+<script>
+(function(){
+  var sel='.hero figure img, .captura img, .media img, .tarjeta .img img, .mejora img, .bloque img';
+  var imgs=[].slice.call(document.querySelectorAll(sel)).filter(function(im){return !im.closest('.comparar');});
+  var v=document.getElementById('visor'), vi=v.querySelector('img'), vp=v.querySelector('p');
+  var cur=-1, last=null;
+  function caption(im){var f=im.closest('figure');var c=f&&f.querySelector('figcaption');return c?c.textContent:'';}
+  function show(i){cur=(i+imgs.length)%imgs.length;var im=imgs[cur];vi.src=im.getAttribute('data-full')||im.currentSrc||im.src;vi.alt=im.alt;vp.textContent=caption(im)||im.alt;}
+  function open(i){last=document.activeElement;show(i);v.hidden=false;document.body.style.overflow='hidden';v.querySelector('.cerrar').focus();}
+  function close(){v.hidden=true;vi.removeAttribute('src');document.body.style.overflow='';if(last)last.focus();}
+  imgs.forEach(function(im,i){
+    im.classList.add('zoomable');im.tabIndex=0;im.setAttribute('role','button');
+    im.setAttribute('aria-label','Ampliar: '+im.alt);
+    im.addEventListener('click',function(){open(i);});
+    im.addEventListener('keydown',function(e){if(e.key==='Enter'||e.key===' '){e.preventDefault();open(i);}});
+  });
+  v.querySelector('.cerrar').addEventListener('click',close);
+  v.querySelector('.ant').addEventListener('click',function(e){e.stopPropagation();show(cur-1);});
+  v.querySelector('.sig').addEventListener('click',function(e){e.stopPropagation();show(cur+1);});
+  v.addEventListener('click',function(e){if(e.target===v||e.target===vi)close();});
+  [].forEach.call(document.querySelectorAll('.comparar'),function(c){
+    var r=c.querySelector('input');
+    function set(x){c.style.setProperty('--pos',x+'%');}
+    r.addEventListener('input',function(){set(r.value);});
+    function fromPointer(e){var b=c.getBoundingClientRect();var x=Math.max(0,Math.min(100,(e.clientX-b.left)/b.width*100));r.value=Math.round(x);set(x);}
+    var drag=false;
+    c.addEventListener('pointerdown',function(e){drag=true;fromPointer(e);});
+    window.addEventListener('pointermove',function(e){if(drag)fromPointer(e);});
+    window.addEventListener('pointerup',function(){drag=false;});
+  });
+  document.addEventListener('keydown',function(e){
+    if(v.hidden)return;
+    if(e.key==='Escape')close();
+    else if(e.key==='ArrowLeft')show(cur-1);
+    else if(e.key==='ArrowRight')show(cur+1);
+    else if(e.key==='Tab'){var b=[].slice.call(v.querySelectorAll('button'));var k=b.indexOf(document.activeElement);e.preventDefault();b[(k+(e.shiftKey?-1:1)+b.length)%b.length].focus();}
+  });
+})();
+</script>
+</body></html>
