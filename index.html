@@ -84,8 +84,17 @@ header nav a{color:var(--indigo);text-decoration:none;padding-block:6px}
 .paso h4{font-size:18px;font-weight:700}
 .paso p{font-size:16px;color:var(--texto-2)}
 .ia .pie{margin-top:28px;padding-top:22px;border-top:1px solid var(--linea);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:12px 40px;font-size:16px}
-.cita-pendiente{margin-top:48px;border:1.5px dashed #8C84D0;border-radius:6px;padding:28px;display:flex;flex-wrap:wrap;gap:18px;align-items:center;justify-content:space-between}
-.cita-pendiente p{color:var(--sobre-indigo);max-width:60ch}
+.testimonio{margin:56px 0 0;padding-left:clamp(20px,3vw,32px);border-left:4px solid var(--rosa);display:flex;flex-direction:column;gap:24px}
+.testimonio blockquote{margin:0;padding:0;background:none;border-radius:0;display:block}
+.testimonio blockquote p{font-size:clamp(19px,2.1vw,24px);line-height:1.5;color:var(--blanco);max-width:62ch}
+.testimonio figcaption{display:flex;flex-wrap:wrap;align-items:center;gap:14px 18px}
+.testimonio .logo-cliente{background:var(--blanco);border-radius:6px;padding:8px 12px;display:flex;align-items:center}
+.testimonio .logo-cliente img{height:30px;width:auto}
+.testimonio .autor{display:flex;flex-direction:column}
+.testimonio .autor strong{color:var(--blanco);font-size:17px}
+.testimonio .autor span{color:var(--sobre-indigo);font-size:15px}
+.testimonio .btn{margin-left:auto}
+@media (max-width:640px){.testimonio .btn{margin-left:0}}
 
 /* FAGUS */
 .fagus .feat{border-top:0;padding-block:40px 8px}
@@ -313,15 +322,21 @@ html{scroll-behavior:smooth}
         <div class="paso"><h4>Revisas y calculas</h4><p>Compruebas el modelo en la vista 3D, corriges lo que haga falta y lo envías a STATIK.</p></div>
       </div>
       <div class="pie">
-        <p><strong>Ya hay ingenierías trabajando así en proyectos reales.</strong> [Fhecor, pendiente de su autorización para citarla]</p>
+        <p><strong>Ya hay ingenierías trabajando así en proyectos reales.</strong></p>
         <p style="color:var(--texto-2)">Además, el archivo es la memoria del modelo: se revisa, se comparte y sirve de plantilla para el siguiente proyecto.</p>
       </div>
     </div>
 
-    <div class="cita-pendiente">
-      <p>[Espacio para la opinión de un cliente que ya trabaja con PRIMUS, pendiente de autorización]</p>
-      <a class="btn blanco" href="#contacto">Pide una demostración</a>
-    </div>
+    <figure class="testimonio">
+      <blockquote>
+        <p>«Lo que más valoramos de PRIMUS es que mantenemos el control total sobre los datos de entrada: podemos revisar y modificar cada parámetro antes de generar el modelo en STATIK. Combina lo mejor de dos mundos: una entrada basada en texto, programable y trazable, con la interfaz gráfica y el modelado interactivo. Y abre un camino muy interesante para el modelado estructural asistido por IA, sin necesidad de saber programar.»</p>
+      </blockquote>
+      <figcaption>
+        <span class="logo-cliente"><img src="img/logos/fhecor.jpg" alt="FHECOR" width="736" height="140"></span>
+        <span class="autor"><strong>Javier Torrico</strong><span>Director de División de Obra Civil de FHECOR</span></span>
+        <a class="btn blanco" href="#contacto">Pide una demostración</a>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
