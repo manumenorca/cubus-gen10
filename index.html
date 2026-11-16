@@ -234,6 +234,12 @@ blockquote footer{font-size:15px;font-weight:700;color:var(--texto-2)}
 .paginas{margin-top:36px;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(10px,3vw,36px);padding:clamp(16px,3vw,32px);background:var(--gris);border-radius:6px}
 .paginas img{background:#fff;box-shadow:0 6px 22px rgba(23,14,108,.16)}
 
+/* Imagen destacada y capturas apiladas */
+.destacada{margin:40px auto 0;max-width:1100px;display:flex;flex-direction:column;gap:10px}
+.destacada img{border:1px solid var(--linea);border-radius:8px;background:#fff;box-shadow:0 8px 30px rgba(23,14,108,.10)}
+.destacada figcaption{font-size:14px;color:var(--texto-2);text-align:center}
+.foto.apiladas{display:flex;flex-direction:column;gap:10px}
+
 /* Ampliar imágenes */
 .zoomable{cursor:zoom-in}
 .zoomable:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
@@ -453,7 +459,7 @@ html{scroll-behavior:smooth}
               <div class="comparar-barra" aria-hidden="true"><span></span></div>
               <input type="range" min="0" max="100" value="50" step="1" aria-label="Comparar el armado con solo M (izquierda) y con M+N (derecha)">
             </div>
-            <figcaption>Arrastra la barra para comparar el armado con solo M y con M+N</figcaption>
+            <figcaption>Influencia de los axiles adicionales, por la acción conjunta de muro y losa, en el armado necesario. Arrastra la barra para comparar.</figcaption>
           </figure>
         </div>
       </div>
@@ -486,8 +492,8 @@ html{scroll-behavior:smooth}
           <p>El estado fisurado que determina la rigidez puede venir de una combinación distinta de la que se usa para verificar la flecha. Ahora se indican por separado: por ejemplo, la combinación característica para la fisuración y la frecuente o la cuasipermanente para calcular la flecha.</p>
         </div>
         <div class="media dos">
-          <figure><div class="foto"><img src="img/cedrus-flecha-dialogo.jpg" alt="Diálogo de cálculo de flecha con combinaciones distintas para la fisuración y para la flecha" width="263" height="409" loading="lazy"></div><figcaption>Combinación para fisurar y para la flecha</figcaption></figure>
-          <figure><div class="foto"><img src="img/cedrus-flecha-isolineas.jpg" data-full="img/grande/cedrus-flecha-isolineas.jpg" alt="Isolíneas de flecha fisurada sobre una losa en CEDRUS" width="900" height="762" loading="lazy"></div><figcaption>Flecha fisurada en isolíneas</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-flecha-dialogo-en.jpg" alt="Diálogo de cálculo de la flecha fisurada: combinación rara para la fisuración y frecuente para la flecha" width="396" height="613" loading="lazy"></div><figcaption>Combinación para fisurar y para la flecha</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-flecha-isolineas-en.jpg" data-full="img/grande/cedrus-flecha-isolineas-en.jpg" alt="Isolíneas de flecha fisurada sobre una losa en CEDRUS" width="900" height="772" loading="lazy"></div><figcaption>Flecha fisurada en isolíneas</figcaption></figure>
         </div>
       </div>
 
@@ -515,8 +521,8 @@ html{scroll-behavior:smooth}
           </ul>
         </div>
         <div class="media dos">
-          <figure><div class="foto"><img src="img/cedrus-cargas-horizontales.jpg" alt="Tabla de cargas horizontales con celdas pegadas desde Excel" width="610" height="901" loading="lazy"></div><figcaption>Cargas horizontales desde Excel</figcaption></figure>
-          <figure><div class="foto"><img src="img/cedrus-modelos-barras.jpg" alt="Comparación de los parámetros de tres modelos de barras" width="612" height="696" loading="lazy"></div><figcaption>Comparación de modelos de barras</figcaption></figure>
+          <figure><div class="foto apiladas"><img src="img/cedrus-cargas-excel-en.jpg" data-full="img/grande/cedrus-cargas-excel-en.jpg" alt="Cargas horizontales por planta preparadas en Excel" width="1000" height="321" loading="lazy"><img src="img/cedrus-cargas-tabla-en.jpg" alt="La misma tabla pegada en la tabla de cargas horizontales de CEDRUS" width="740" height="219" loading="lazy"></div><figcaption>Cargas horizontales: de Excel a la tabla de CEDRUS</figcaption></figure>
+          <figure><div class="foto"><img src="img/cedrus-modelos-barras-en.jpg" data-full="img/grande/cedrus-modelos-barras-en.jpg" alt="Comparación de los parámetros de tres modelos de barras" width="700" height="789" loading="lazy"></div><figcaption>Comparación de modelos de barras</figcaption></figure>
         </div>
       </div>
 
@@ -559,6 +565,11 @@ html{scroll-behavior:smooth}
       <div class="chips"><span class="chip">CEDRUS</span><span class="chip">STATIK</span><span class="chip">FAGUS</span><span class="chip">LARIX</span><span class="chip">PYRUS</span><span class="chip">AVENA</span></div>
     </div>
 
+    <figure class="destacada">
+      <img src="img/grande/todos-modelos-grandes.jpg" alt="Modelo 3D de un proyecto muy grande con varios edificios en CEDRUS" width="1444" height="722" loading="lazy">
+      <figcaption>Fiable en el trabajo diario y con modelos muy grandes</figcaption>
+    </figure>
+
     <div class="aviso-todos">
       <h3>¿Trabajas con PYRUS o AVENA? La Generación 10 también es para ti.</h3>
       <p>Con ServicePlus recibes todas estas mejoras generales: programas más fiables, exportación a Excel, informes a medida, gestión de proyectos renovada y licencias más flexibles.</p>
@@ -576,12 +587,12 @@ html{scroll-behavior:smooth}
             <li>La impresión se ha modernizado.</li>
           </ul>
         </div>
-        <figure><div class="foto"><img src="img/informe-composicion.jpg" alt="Ventana de composición del informe: lista de entradas con portada, índice, capítulos y salidas de cálculo, y vista previa de la portada" width="990" height="578" loading="lazy"></div><figcaption>La composición del informe</figcaption></figure>
+        <figure><div class="foto"><img src="img/informe-composicion-en.jpg" data-full="img/grande/informe-composicion-en.jpg" alt="Ventana de composición del informe: lista de entradas con portada, índice, capítulos y salidas de cálculo, y vista previa de la portada" width="1000" height="586" loading="lazy"></div><figcaption>La composición del informe</figcaption></figure>
       </div>
       <div class="paginas">
-        <figure><img src="img/informe-portada.jpg" data-full="img/grande/informe-portada.jpg" alt="Portada del informe con el título, una vista 3D del edificio y los datos del proyecto" width="600" height="849" loading="lazy"><figcaption>Portada</figcaption></figure>
-        <figure><img src="img/informe-indice.jpg" data-full="img/grande/informe-indice.jpg" alt="Índice automático del informe con capítulos y apartados numerados" width="600" height="849" loading="lazy"><figcaption>Índice automático</figcaption></figure>
-        <figure><img src="img/informe-comentarios.jpg" data-full="img/grande/informe-comentarios.jpg" alt="Página de resultados con isolíneas y un comentario propio con formato debajo" width="600" height="849" loading="lazy"><figcaption>Resultados con tus comentarios</figcaption></figure>
+        <figure><img src="img/informe-portada-en.jpg" data-full="img/grande/informe-portada-en.jpg" alt="Portada del informe con el título, una vista 3D del edificio y los datos del proyecto" width="600" height="849" loading="lazy"><figcaption>Portada</figcaption></figure>
+        <figure><img src="img/informe-indice-en.jpg" data-full="img/grande/informe-indice-en.jpg" alt="Índice automático del informe con capítulos y apartados numerados" width="600" height="849" loading="lazy"><figcaption>Índice automático</figcaption></figure>
+        <figure><img src="img/informe-comentarios-en.jpg" data-full="img/grande/informe-comentarios-en.jpg" alt="Página de resultados con isolíneas y un comentario propio con formato debajo" width="600" height="849" loading="lazy"><figcaption>Resultados con tus comentarios</figcaption></figure>
       </div>
     </article>
 
@@ -591,15 +602,15 @@ html{scroll-behavior:smooth}
           <h3>Resultados a Excel en un clic</h3>
           <p>Todos los programas exportan todas sus tablas de resultados a Excel, con su formato, sus etiquetas y sus explicaciones. Sin copiar y pegar.</p>
         </div>
-        <figure><div class="foto"><img src="img/excel-programa.jpg" data-full="img/grande/excel-programa.jpg" alt="Ventana de datos de estructura con varias tablas seleccionadas para exportar" width="600" height="718" loading="lazy"></div><figcaption>Las tablas, en el programa…</figcaption></figure>
+        <figure><div class="foto"><img src="img/excel-programa-en.jpg" data-full="img/grande/excel-programa-en.jpg" alt="Ventana de datos de estructura con varias tablas seleccionadas para exportar" width="600" height="731" loading="lazy"></div><figcaption>Las tablas, en el programa…</figcaption></figure>
       </div>
-      <figure class="ancho"><div class="foto"><img src="img/excel-resultado.jpg" alt="La tabla de materiales exportada a Excel, con sus unidades y una pestaña por tabla" width="1140" height="240" loading="lazy"></div><figcaption>…y en Excel, con su formato y una pestaña por tabla</figcaption></figure>
+      <figure class="ancho"><div class="foto"><img src="img/excel-resultado-en.jpg" data-full="img/grande/excel-resultado-en.jpg" alt="Tabla de datos de estructura exportada a Excel, con sus unidades y una pestaña por tabla" width="1200" height="257" loading="lazy"></div><figcaption>…y en Excel, con su formato y una pestaña por tabla</figcaption></figure>
     </article>
 
     <div class="lista-mejoras">
       <div class="mejora"><h4>Arranque y cierre más fiables</h4><p>El inicio, el cierre y los procesos comunes a todos los programas funcionan de forma más robusta, también en sesiones largas y al cambiar entre programas.</p></div>
       <div class="mejora"><h4>Tu trabajo, más protegido</h4><p>Si una operación no puede completarse o se cancela, el modelo queda en un estado coherente.</p></div>
-      <div class="mejora"><img src="img/todos-modelos-grandes.jpg" data-full="img/grande/todos-modelos-grandes.jpg" alt="Modelo 3D de un proyecto muy grande con varios edificios" width="900" height="450" loading="lazy" style="border-radius:4px;margin-bottom:8px"><h4>Modelos grandes sin sobresaltos</h4><p>Funcionamiento estable y más velocidad en proyectos muy grandes, de la entrada al cálculo y el dimensionamiento.</p></div>
+      <div class="mejora"><h4>Modelos grandes sin sobresaltos</h4><p>Funcionamiento estable y más velocidad en proyectos muy grandes, de la entrada al cálculo y el dimensionamiento.</p></div>
       <div class="mejora"><h4>CubusExplorer renovado</h4><p>Proyectos y cálculos con vista previa, estado y fecha. Crear, copiar, mover, archivar o borrar proyectos es más seguro y muestra su progreso.</p></div>
       <div class="mejora"><h4>Inicio y navegación mejorados</h4><p>Mejores vistas previas al empezar, tablas de resultados más legibles y mejor escalado de las ventanas.</p></div>
       <div class="mejora"><h4>Sentinel SoftLock</h4><p>Licencia por software, vinculada a un equipo físico o virtual. Ideal para servidores y entornos virtualizados, sin puerto USB ni llave.</p></div>
@@ -882,7 +893,7 @@ html{scroll-behavior:smooth}
 </div>
 <script>
 (function(){
-  var sel='.hero figure img, .captura img, .media img, .tarjeta .img img, .mejora img, .bloque img';
+  var sel='.hero figure img, .captura img, .media img, .tarjeta .img img, .mejora img, .bloque img, .destacada img';
   var imgs=[].slice.call(document.querySelectorAll(sel)).filter(function(im){return !im.closest('.comparar');});
   var v=document.getElementById('visor'), vi=v.querySelector('img'), vp=v.querySelector('p');
   var cur=-1, last=null;
