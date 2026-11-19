@@ -240,6 +240,19 @@ blockquote footer{font-size:15px;font-weight:700;color:var(--texto-2)}
 .destacada figcaption{font-size:14px;color:var(--texto-2);text-align:center}
 .foto.apiladas{display:flex;flex-direction:column;gap:10px}
 
+/* CubusPy: portada y bloque de PRIMUS */
+.hero-duo{max-width:1240px}
+.hero-duo .duo{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.3fr);gap:clamp(12px,2vw,24px);align-items:center}
+.marco-claro{border:1px solid var(--linea);border-radius:8px;overflow:hidden;background:#fff;box-shadow:0 8px 30px rgba(23,14,108,.10)}
+@media (max-width:640px){.hero-duo .duo{grid-template-columns:1fr}}
+.primus-bloque{margin-top:56px;border:1px solid var(--line-dark);border-radius:8px;padding:clamp(22px,4vw,44px)}
+.primus-bloque .fila{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,380px),1fr));gap:28px 48px;align-items:center}
+.primus-bloque .txt{display:flex;flex-direction:column;gap:12px;min-width:0}
+.primus-bloque h3{font-size:clamp(23px,2.6vw,30px);line-height:1.2;font-weight:900}
+.primus-bloque p{color:var(--sobre-indigo)}
+.primus-bloque .captura{margin:0}
+.primus-bloque .testimonio{margin-top:40px}
+
 /* Ampliar imágenes */
 .zoomable{cursor:zoom-in}
 .zoomable:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
@@ -262,7 +275,7 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <img src="img/logo.png" alt="Cubus Software España · 15 años" width="258" height="111">
     <nav aria-label="Secciones">
-      <a href="#primus">PRIMUS</a>
+      <a href="#cubuspy">CubusPy</a>
       <a href="#fagus">FAGUS</a>
       <a href="#cedrus">CEDRUS</a>
       <a href="#todos">Para todos</a>
@@ -277,72 +290,79 @@ html{scroll-behavior:smooth}
 <section class="hero">
   <div class="wrap">
     <p class="eyebrow">Generación 10 · Llega en 2027</p>
-    <h1>Más potencia para calcular estructuras. Y un programa nuevo para modelar puentes.</h1>
-    <p class="lead">La Generación 10 llega a todos los programas Cubus con mejoras para todos, secciones de madera frente al fuego en FAGUS, un gran salto en CEDRUS y una herramienta completamente nueva: PRIMUS, para crear modelos de STATIK escribiendo texto, también con ayuda de la inteligencia artificial. Si tienes ServicePlus, recibes la Generación 10 de tus programas sin coste adicional, y PRIMUS si además tienes STATIK.</p>
+    <h1>Más potencia para calcular estructuras. Y tus modelos de STATIK, escritos en Python.</h1>
+    <p class="lead">La Generación 10 llega a todos los programas Cubus con mejoras para todos, secciones de madera frente al fuego en FAGUS, un gran salto en CEDRUS y algo completamente nuevo para STATIK: CubusPy, para crear proyectos completos de STATIK con Python, también con ayuda de la inteligencia artificial. Si tienes ServicePlus, recibes la Generación 10 de tus programas sin coste adicional.</p>
     <div class="acciones">
-      <a class="btn primario" href="#primus">Descubre PRIMUS</a>
+      <a class="btn primario" href="#cubuspy">Descubre CubusPy</a>
       <a class="btn borde" href="#recibir">Cómo recibirla</a>
     </div>
   </div>
-  <figure class="wrap">
-    <img src="img/primus-puente.jpg" alt="Modelo 3D de un puente atirantado generado con PRIMUS" width="1600" height="758">
-    <figcaption>Puente atirantado modelado con PRIMUS</figcaption>
+  <figure class="wrap hero-duo">
+    <div class="duo">
+      <div class="marco-claro"><img src="img/statik-python-codigo.jpg" data-full="img/grande/statik-python-codigo.jpg" alt="Script de Python que define un pórtico con un tendón de postesado y lanza STATIK" width="900" height="960"></div>
+      <div class="marco-claro"><img src="img/statik-python-portico3d.jpg" data-full="img/grande/statik-python-portico3d.jpg" alt="El modelo 3D de STATIK generado por el script" width="900" height="541"></div>
+    </div>
+    <figcaption>Un script de Python (izquierda) genera el proyecto completo de STATIK (derecha)</figcaption>
   </figure>
 </section>
 
-<!-- PRIMUS -->
-<section id="primus" class="band indigo primus">
+<!-- CUBUSPY -->
+<section id="cubuspy" class="band indigo primus">
   <div class="wrap">
     <div class="head">
-      <div class="chips"><span class="chip rosa">Nuevo</span><span class="chip contorno">Para clientes con STATIK y ServicePlus</span></div>
-      <h2>PRIMUS. Todo el puente, en un archivo de texto.</h2>
-      <p class="lead">PRIMUS es el nuevo preprocesador de STATIK. Describes el puente (materiales, secciones, nodos, elementos, apoyos, fases constructivas, cargas, combinaciones y envolventes), lo ves en 3D al instante y PRIMUS genera el proyecto completo de STATIK, listo para calcular.</p>
+      <div class="chips"><span class="chip rosa">Nuevo</span><span class="chip contorno">Incluido en la Generación 10</span></div>
+      <h2>CubusPy. Tus modelos de STATIK, escritos en Python.</h2>
+      <p class="lead">CubusPy es el nuevo módulo de Python de STATIK. Escribes el modelo en Python, con tu propia instalación y tu editor de siempre, y el script genera el proyecto completo de STATIK, listo para calcular. Sin una sintaxis nueva que aprender: es Python.</p>
     </div>
-
-    <figure class="captura">
-      <div class="marco"><img src="img/primus-voladizos.jpg" data-full="img/grande/primus-voladizos.jpg" alt="PRIMUS: a la izquierda el archivo de texto con las secciones de cajón de canto variable; a la derecha el puente en 3D durante la construcción por voladizos sucesivos" width="1800" height="985"></div>
-      <figcaption>Ejemplo incluido en PRIMUS: puente de hormigón construido por voladizos sucesivos, de 72 + 112 + 72 m, en la fase constructiva 14 · 74 nodos · 75 elementos</figcaption>
-    </figure>
 
     <div class="grid3" style="margin-top:56px">
-      <div class="tarjeta-osc"><h3>Texto y 3D, lado a lado</h3><p>Escribes a la izquierda y el modelo se actualiza a la derecha, con vista sombreada, render, secciones y tablas.</p></div>
-      <div class="tarjeta-osc"><h3>Variantes sin volver a dibujar</h3><p>Cambia una luz, un canto o una sección y regenera el modelo completo. Ideal para estudiar alternativas.</p></div>
-      <div class="tarjeta-osc"><h3>Secciones a tu medida</h3><p>Secciones paramétricas, poligonales o importadas directamente de FAGUS.</p></div>
-      <div class="tarjeta-osc"><h3>Pretensado y fases constructivas</h3><p>Trazado de tendones por puntos de control y proceso constructivo definido fase a fase.</p></div>
-      <div class="tarjeta-osc"><h3>Cargas móviles y acciones</h3><p>Cargas de tráfico y acciones definidas por el usuario, asignadas desde el propio archivo.</p></div>
-      <div class="tarjeta-osc"><h3>Combinaciones y envolventes, sin pasar por STATIK</h3><p>Defínelas directamente en PRIMUS. El modelo llega a STATIK completo y listo para calcular.</p></div>
+      <div class="tarjeta-osc"><h3>Python de verdad</h3><p>Python estándar (3.11 o posterior), con todas sus librerías. El paquete viene con la instalación de la Generación 10.</p></div>
+      <div class="tarjeta-osc"><h3>Proyectos completos de STATIK</h3><p>El script crea el proyecto entero y puede abrir STATIK directamente para calcularlo.</p></div>
+      <div class="tarjeta-osc"><h3>Modelos paramétricos</h3><p>La luz del vano, la altura de las pilas o el canto son variables. Cambia una y vuelve a generar el modelo.</p></div>
+      <div class="tarjeta-osc"><h3>Muchas variantes de una vez</h3><p>Un bucle genera tantos modelos como necesites. Arrástralos juntos al CubusExplorer y compáralos.</p></div>
+      <div class="tarjeta-osc"><h3>Cálculo e informe automáticos</h3><p>STATIK se lanza desde la línea de comandos, calcula, actualiza el informe y se cierra. Todas las variantes, con el mismo criterio.</p></div>
+      <div class="tarjeta-osc"><h3>Tu propia cadena de trabajo</h3><p>Enlaza el informe con tus scripts para tratar los resultados: del modelo a las conclusiones, sin pasos a mano.</p></div>
     </div>
-
-    <figure class="captura">
-      <div class="marco"><img src="img/primus-seccion-variable.jpg" data-full="img/grande/primus-seccion-variable.jpg" alt="PRIMUS: tablero de cajón de canto variable definido con una función y un bucle, con la sección dibujada a la derecha" width="1200" height="637" loading="lazy"></div>
-      <figcaption>Un tablero de cajón de canto variable: una función y un bucle generan todas las secciones en unas pocas líneas</figcaption>
-    </figure>
 
     <div class="ia">
-      <p class="eyebrow">PRIMUS + inteligencia artificial</p>
-      <h3>Si el modelo es texto, la IA puede escribirlo contigo.</h3>
-      <p class="lead">Como en PRIMUS el modelo de STATIK se describe en un archivo de texto, puedes pedir a un asistente de inteligencia artificial que lo prepare a partir de la geometría, las cargas o la descripción del puente. Tú lo revisas en 3D, lo ajustas y calculas. El criterio sigue siendo del ingeniero; la IA se encarga de teclear.</p>
+      <p class="eyebrow">CubusPy + inteligencia artificial</p>
+      <h3>Python es el idioma que mejor habla la IA.</h3>
+      <p class="lead">Como CubusPy es Python estándar, cualquier asistente de inteligencia artificial puede escribir el script a partir de la geometría, las cargas o la descripción de la estructura. Tú lo revisas, lo ejecutas y calculas. El criterio sigue siendo del ingeniero; la IA se encarga de teclear.</p>
       <div class="pasos">
-        <div class="paso"><h4>Describe el puente</h4><p>Luces, sección tipo, materiales, fases y cargas: con tus palabras o con tus propios datos.</p></div>
-        <div class="paso"><h4>La IA redacta el archivo</h4><p>Nodos, elementos, secciones, combinaciones y envolventes, en el formato de PRIMUS.</p></div>
-        <div class="paso"><h4>Revisas y calculas</h4><p>Compruebas el modelo en la vista 3D, corriges lo que haga falta y lo envías a STATIK.</p></div>
+        <div class="paso"><h4>Describe la estructura</h4><p>Luces, secciones, materiales, apoyos y cargas: con tus palabras o con tus propios datos.</p></div>
+        <div class="paso"><h4>La IA escribe el script</h4><p>En Python, con las funciones de CubusPy, y con las variables que quieras estudiar.</p></div>
+        <div class="paso"><h4>Revisas y calculas</h4><p>Lees el script, lo ejecutas, abres el modelo en STATIK y compruebas los resultados.</p></div>
       </div>
       <div class="pie">
-        <p><strong>Ya hay ingenierías trabajando así en proyectos reales.</strong></p>
-        <p style="color:var(--texto-2)">Además, el archivo es la memoria del modelo: se revisa, se comparte y sirve de plantilla para el siguiente proyecto.</p>
+        <p><strong>El script es la memoria del modelo.</strong> Se revisa, se guarda y sirve de plantilla para el siguiente proyecto.</p>
+        <p style="color:var(--texto-2)">Y no depende de nadie: cualquier ingeniero de tu equipo que sepa algo de Python puede leerlo y modificarlo.</p>
       </div>
     </div>
 
-    <figure class="testimonio">
-      <blockquote>
-        <p>«Lo que más valoramos de PRIMUS es que mantenemos el control total sobre los datos de entrada: podemos revisar y modificar cada parámetro antes de generar el modelo en STATIK. Combina lo mejor de dos mundos: una entrada basada en texto, programable y trazable, con la interfaz gráfica y el modelado interactivo. Y abre un camino muy interesante para el modelado estructural asistido por IA, sin necesidad de saber programar.»</p>
-      </blockquote>
-      <figcaption>
-        <span class="logo-cliente"><img src="img/logos/fhecor.jpg" alt="FHECOR" width="736" height="140"></span>
-        <span class="autor"><strong>Javier Torrico</strong><span>Director de División de Obra Civil de FHECOR</span></span>
-        <a class="btn blanco" href="#contacto">Pide una demostración</a>
-      </figcaption>
-    </figure>
+    <div class="primus-bloque" id="primus">
+      <div class="fila">
+        <div class="txt">
+          <p class="eyebrow">Para puentes</p>
+          <h3>PRIMUS: el puente en texto, con vista 3D al momento</h3>
+          <p>Para el modelado de puentes, PRIMUS ofrece un entorno con vista previa: escribes el modelo en texto y lo ves en 3D mientras lo escribes, con secciones, pretensado, fases constructivas, cargas móviles, combinaciones y envolventes. Ya hay ingenierías trabajando así en proyectos reales.</p>
+        </div>
+        <figure class="captura">
+          <div class="marco"><img src="img/primus-voladizos.jpg" data-full="img/grande/primus-voladizos.jpg" alt="PRIMUS: a la izquierda el archivo de texto con las secciones de cajón de canto variable; a la derecha el puente en 3D durante la construcción por voladizos sucesivos" width="1800" height="985" loading="lazy"></div>
+          <figcaption>Puente por voladizos sucesivos de 72 + 112 + 72 m, en la fase constructiva 14</figcaption>
+        </figure>
+      </div>
+
+      <figure class="testimonio">
+        <blockquote>
+          <p>«Lo que más valoramos de PRIMUS es que mantenemos el control total sobre los datos de entrada: podemos revisar y modificar cada parámetro antes de generar el modelo en STATIK. Combina lo mejor de dos mundos: una entrada basada en texto, programable y trazable, con la interfaz gráfica y el modelado interactivo. Y abre un camino muy interesante para el modelado estructural asistido por IA, sin necesidad de saber programar.»</p>
+        </blockquote>
+        <figcaption>
+          <span class="logo-cliente"><img src="img/logos/fhecor.jpg" alt="FHECOR" width="736" height="140"></span>
+          <span class="autor"><strong>Javier Torrico</strong><span>Director de División de Obra Civil de FHECOR</span></span>
+          <a class="btn blanco" href="#contacto">Pide una demostración</a>
+        </figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
@@ -633,25 +653,12 @@ html{scroll-behavior:smooth}
       <img src="img/icon-statik.png" alt="Icono de STATIK" width="103" height="161">
       <div class="txt">
         <p class="eyebrow">STATIK · Puentes y estructuras de barras</p>
-        <h2 class="h2">STATIK calcula y documenta por sí solo</h2>
-        <p class="lead">Los modelos se generan con <a href="#primus">PRIMUS</a>. Además, STATIK se puede lanzar desde la línea de comandos para calcular y documentar variantes de forma automática, e incorpora enlaces elásticos en nodos dobles.</p>
+        <h2 class="h2">Más novedades en STATIK</h2>
+        <p class="lead">Además de <a href="#cubuspy">CubusPy</a>, STATIK incorpora enlaces elásticos en nodos dobles y amplía el dimensionamiento de muros con FAGUS.</p>
       </div>
     </div>
 
     <div style="margin-top:32px">
-      <div class="feat">
-        <div class="txt">
-          <span class="mod">Automatización</span>
-          <h3>Cálculo e informe automáticos desde la línea de comandos</h3>
-          <p>Un informe preparado indica qué cálculos y salidas hay que hacer. STATIK se arranca desde la línea de comandos, actualiza ese informe y se cierra solo.</p>
-          <p>Junto con la generación de modelos por script en Python, puedes calcular y documentar varias variantes con el mismo criterio. Los informes resultantes quedan listos para compararlos y evaluarlos con tus propios scripts.</p>
-        </div>
-        <div class="media dos">
-          <figure><div class="foto"><img src="img/statik-python-codigo.jpg" data-full="img/grande/statik-python-codigo.jpg" alt="Script de Python que genera un pórtico con un tendón de postesado y lanza STATIK" width="900" height="960" loading="lazy"></div><figcaption>El script de Python</figcaption></figure>
-          <figure><div class="foto"><img src="img/statik-python-portico3d.jpg" data-full="img/grande/statik-python-portico3d.jpg" alt="Estructura de barras en 3D generada por script en STATIK" width="900" height="541" loading="lazy"></div><figcaption>El modelo en STATIK</figcaption></figure>
-        </div>
-      </div>
-
       <div class="feat">
         <div class="txt">
           <span class="mod">Nodos dobles</span>
@@ -768,7 +775,7 @@ html{scroll-behavior:smooth}
       <div class="plan destacado">
         <p class="eyebrow">Soporte Premium</p>
         <h3>ServicePlus</h3>
-        <p>Recibes la Generación 10 de todos tus programas automáticamente y sin coste adicional. Si además tienes STATIK, también recibes PRIMUS.</p>
+        <p>Recibes la Generación 10 de todos tus programas automáticamente y sin coste adicional, con CubusPy incluido.</p>
         <ul>
           <li>Cambio de generación incluido.</li>
           <li>Soporte preferente, con respuesta en una jornada laboral.</li>
@@ -779,7 +786,7 @@ html{scroll-behavior:smooth}
       <div class="plan">
         <p class="eyebrow" style="color:var(--texto-2)">Soporte Básico</p>
         <h3>Update Service</h3>
-        <p>Te preparamos una propuesta para actualizar a la Generación 10 o pasar a ServicePlus. Si tienes STATIK, con ServicePlus recibes también PRIMUS.</p>
+        <p>Te preparamos una propuesta para actualizar a la Generación 10 o pasar a ServicePlus.</p>
         <a class="btn primario" href="mailto:info@cubus-software.es?subject=Actualizaci%C3%B3n%20a%20la%20Generaci%C3%B3n%2010" target="_blank" rel="noopener" style="align-self:flex-start;margin-top:8px">Pide tu propuesta</a>
       </div>
     </div>
@@ -871,7 +878,7 @@ html{scroll-behavior:smooth}
     <div class="izq">
       <p class="eyebrow">Webinar de presentación · Muy pronto</p>
       <h2 class="h2">Míralo en directo</h2>
-      <p class="lead">Te enseñamos PRIMUS y las novedades de la Generación 10 con modelos reales, y resolvemos tus dudas.</p>
+      <p class="lead">Te enseñamos CubusPy y las novedades de la Generación 10 con modelos reales, y resolvemos tus dudas.</p>
       <a class="btn blanco" href="mailto:info@cubus-software.es?subject=Webinar%20presentaci%C3%B3n%20Generaci%C3%B3n%2010" target="_blank" rel="noopener">Reserva tu plaza</a>
     </div>
     <div class="contacto">
