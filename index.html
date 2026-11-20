@@ -97,9 +97,9 @@ header nav a{color:var(--indigo);text-decoration:none;padding-block:6px}
 @media (max-width:640px){.testimonio .btn{margin-left:0}}
 
 /* FAGUS */
-.fagus .feat{border-top:0;padding-block:40px 8px}
+.fagus .feat{padding-block:44px}
 .fagus .media .foto{padding:0;overflow:hidden}
-.fagus .lista-mejoras{margin-top:16px}
+.fagus .lista-mejoras{margin-top:24px;scroll-margin-top:16px;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
 .fagus .mejora a{font-weight:700}
 
 /* CEDRUS */
@@ -291,7 +291,7 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <p class="eyebrow">Generación 10 · Llega en 2027</p>
     <h1>Más potencia para calcular estructuras. Y tus modelos de STATIK, escritos en Python.</h1>
-    <p class="lead">La Generación 10 llega a todos los programas Cubus con mejoras para todos, secciones de madera frente al fuego en FAGUS, un gran salto en CEDRUS y algo completamente nuevo para STATIK: CubusPy, para crear proyectos completos de STATIK con Python, también con ayuda de la inteligencia artificial. Si tienes ServicePlus, recibes la Generación 10 de tus programas sin coste adicional.</p>
+    <p class="lead">La Generación 10 llega a todos los programas Cubus con mejoras para todos, un FAGUS más flexible y con madera frente al fuego, un gran salto en CEDRUS y algo completamente nuevo para STATIK: CubusPy, para crear proyectos completos de STATIK con Python, también con ayuda de la inteligencia artificial. Si tienes ServicePlus, recibes la Generación 10 de tus programas sin coste adicional.</p>
     <div class="acciones">
       <a class="btn primario" href="#cubuspy">Descubre CubusPy</a>
       <a class="btn borde" href="#recibir">Cómo recibirla</a>
@@ -375,28 +375,96 @@ html{scroll-behavior:smooth}
       <img src="img/icon-fagus.png" alt="Icono de FAGUS" width="103" height="161">
       <div class="txt">
         <p class="eyebrow">FAGUS · Secciones</p>
-        <h2 class="h2">FAGUS, ahora también con madera y fuego</h2>
-        <p class="lead">Las secciones de madera se pueden analizar a altas temperaturas, el cortante y la torsión se definen con más claridad y FAGUS recibe más esfuerzos desde CEDRUS y STATIK. Además, se lleva todas las mejoras generales de la Generación 10.</p>
+        <h2 class="h2">FAGUS 10: tu hormigón, la madera frente al fuego y un trabajo diario más claro</h2>
+        <p class="lead">FAGUS 10 parte de la base probada de FAGUS 9 y va más allá: más libertad para describir tu hormigón, un diálogo de parámetros rediseñado, un nuevo modelo de madera con cálculo frente al fuego y un nuevo solver para el análisis frente al fuego. Además, se lleva todas las mejoras generales de la Generación 10.</p>
+      </div>
+    </div>
+    <nav class="indice" aria-label="Novedades de FAGUS">
+      <a href="#f-hormigon">Tu curva de hormigón</a>
+      <a href="#f-parametros">Parámetros de cálculo</a>
+      <a href="#f-madera">Madera y fuego</a>
+      <a href="#f-solver">Nuevo solver</a>
+      <a href="#f-mas">Y además</a>
+    </nav>
+
+    <div style="margin-top:32px">
+      <div class="feat" id="f-hormigon">
+        <div class="txt">
+          <span class="mod">Hormigón</span>
+          <h3>Tu propia curva tensión-deformación del hormigón</h3>
+          <p>FAGUS 10 hace más fácil, más claro y más versátil definir tu propia relación tensión-deformación del hormigón. La introduces punto a punto y FAGUS la usa en todo el análisis.</p>
+          <ul>
+            <li>Introducción punto a punto, con vista previa de la curva al momento.</li>
+            <li>Pega directamente desde Excel o cualquier hoja de cálculo; edita, inserta y selecciona filas como en una hoja de cálculo.</li>
+            <li>Se aplica a todos los hormigones de la sección, escalada automáticamente a su resistencia de cálculo.</li>
+            <li>Disponible en todos los análisis principales: aprovechamiento, análisis de tensiones (con esfuerzos o con deformaciones), diagrama de interacción y diagramas momento-curvatura y momento-rigidez.</li>
+            <li>Los datos se comprueban antes de aplicarlos, con avisos claros de lo que hay que revisar.</li>
+            <li>Ideal para hormigones de alta resistencia, con fibras o ligeros, y para curvas obtenidas de ensayos.</li>
+          </ul>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/fagus-curva-excel.jpg" data-full="img/grande/fagus-curva-excel.jpg" alt="Curva tensión-deformación copiada de Excel y pegada en los parámetros de cálculo de FAGUS, con la vista previa de la curva" width="900" height="451" loading="lazy"></div><figcaption>Curva copiada de Excel y pegada en los parámetros de cálculo; la vista previa muestra la curva característica (negro) y la de cálculo (rojo)</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat apilado" id="f-parametros">
+        <div class="txt">
+          <span class="mod">Parámetros de cálculo</span>
+          <h3>Todos los parámetros de cálculo, de un vistazo</h3>
+          <p>El diálogo de parámetros de cálculo se ha rediseñado para que cada ajuste y su efecto se vean en un solo lugar.</p>
+          <ul>
+            <li>Vista previa del diagrama al momento para hormigón, acero de armar, acero de pretensar, UHPC y madera: eliges el material y ves su curva.</li>
+            <li>Diagramas redimensionables, con el estilo de ejes que prefieras, que se imprimen tal como se ven en pantalla.</li>
+            <li>Tablas como en una hoja de cálculo: copiar y pegar, navegación con el teclado y selección de varias filas.</li>
+            <li>Botones Aplicar, Aceptar y Cancelar claros: Aplicar solo se activa cuando hay algún cambio.</li>
+            <li>Introducción guiada: los valores se mantienen dentro del rango que permite la norma elegida.</li>
+            <li>La tabla de parámetros impresa coincide siempre con la selección, con leyendas para las opciones activas.</li>
+          </ul>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/fagus-parametros.jpg" data-full="img/grande/fagus-parametros.jpg" alt="El nuevo diálogo de parámetros de cálculo con la vista previa de los diagramas de cinco materiales" width="1200" height="628" loading="lazy"></div><figcaption>El nuevo diálogo de parámetros de cálculo, con vista previa de los diagramas de hormigón, acero de armar, acero de pretensar, UHPC y madera</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat" id="f-madera">
+        <div class="txt">
+          <span class="mod">Madera y fuego</span>
+          <h3>Madera: nuevo modelo de material y cálculo frente al fuego</h3>
+          <ul>
+            <li>Nuevo modelo de material para la madera, con comportamiento distinto a tracción y a compresión y parámetros propios para la clase de servicio (efecto de la humedad en la rigidez y en la resistencia), la clase de duración de la carga y los coeficientes parciales de seguridad.</li>
+            <li>El diagrama tensión-deformación de la madera, junto a sus parámetros.</li>
+            <li>Secciones de madera frente al fuego: análisis térmico y mecánico a altas temperaturas, con propiedades que tienen en cuenta el ablandamiento a alta temperatura y la densidad según EN 1995-1-2.</li>
+            <li>Curvas temperatura-tiempo mejoradas: las normalizadas se muestran como referencia y las tuyas se introducen en una tabla con su gráfico.</li>
+          </ul>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/fagus-madera-fuego.jpg" data-full="img/grande/fagus-madera-fuego.jpg" alt="Sección en T de madera expuesta al fuego por abajo: malla de elementos finitos y campo de temperaturas" width="900" height="720" loading="lazy"></div><figcaption>Sección en T de madera expuesta al fuego por abajo: malla del análisis térmico (izquierda) y campo de temperaturas, de frío (azul) a caliente (rojo) (derecha)</figcaption></figure>
+        </div>
+      </div>
+
+      <div class="feat" id="f-solver">
+        <div class="txt">
+          <span class="mod">Análisis frente al fuego</span>
+          <h3>Nuevo solver mecánico para el análisis frente al fuego</h3>
+          <p>Un nuevo solver de seguimiento de trayectoria calcula la carga última de secciones a altas temperaturas. Sigue la respuesta de la sección paso a paso, más allá de la carga máxima y dentro de la rama de ablandamiento, y hace el cálculo no lineal más estable y eficiente.</p>
+          <ul>
+            <li>Pensado para materiales que se ablandan: a altas temperaturas pierden resistencia y rigidez después del pico, y el solver sigue ese comportamiento hasta la rotura. Especialmente útil en secciones de madera frente al fuego.</li>
+            <li>Se adapta automáticamente a cada sección.</li>
+          </ul>
+        </div>
+        <div class="media">
+          <figure><div class="foto"><img src="img/fagus-solver.jpg" data-full="img/grande/fagus-solver.jpg" alt="Tres gráficos con el camino de solución del nuevo solver: axil y momentos flectores frente a deformación y curvatura" width="900" height="313" loading="lazy"></div><figcaption>Camino de solución que sigue el nuevo solver, paso a paso: axil y momentos flectores frente a deformación y curvatura</figcaption></figure>
+        </div>
       </div>
     </div>
 
-    <div class="feat">
-      <div class="txt">
-        <span class="mod">Fuego y temperatura</span>
-        <h3>Secciones de madera a altas temperaturas</h3>
-        <p>FAGUS hace ahora el análisis térmico y mecánico de secciones de madera a altas temperaturas.</p>
-        <ul>
-          <li>Para la carga última con temperaturas elevadas, un nuevo método de seguimiento de trayectoria hace el cálculo no lineal más estable y eficiente.</li>
-          <li>Más opciones para introducir curvas temperatura–tiempo propias.</li>
-        </ul>
-      </div>
-      <div class="media">
-        <figure><div class="foto"><img src="img/fagus-madera-fuego.jpg" data-full="img/grande/fagus-madera-fuego.jpg" alt="Sección en T de madera: a la izquierda la malla de cálculo y a la derecha la distribución de temperaturas desde las caras expuestas" width="900" height="720" loading="lazy"></div><figcaption>Sección en T de madera: malla de cálculo y distribución de temperaturas</figcaption></figure>
-      </div>
-    </div>
-
-    <div class="lista-mejoras">
+    <div class="lista-mejoras" id="f-mas">
+      <div class="mejora"><h4>Informes más claros</h4><p>Unidades y decimales coherentes en todas las tablas, según tus preferencias. Tablas de cortante reorganizadas, con datos y resultados por separado y los valores determinantes resaltados. Tablas de propiedades sin columnas vacías y diagramas con ejes y rejillas más legibles.</p></div>
       <div class="mejora"><h4>Cortante y torsión, más claros</h4><p>El modelo de cortante y torsión se elige según el tipo de sección y sus elementos de pared, y solo aparecen las opciones que encajan con tu sección. En secciones compactas, la torsión se puede aplicar en la sección base o en cada elemento de pared.</p></div>
+      <div class="mejora"><h4>Archivos por lotes y macros en UTF-8</h4><p>Prepara archivos de entrada por lotes y macros con cualquier editor moderno, o genéralos con tus propios scripts. FAGUS detecta la codificación solo, sin configurar nada.</p></div>
+      <div class="mejora"><h4>Más robusto</h4><p>El programa se ha revisado y reforzado de forma sistemática, con comprobaciones más estrictas en todos los módulos. Si ocurre algo inesperado, lo avisa al momento con un mensaje claro.</p></div>
+      <div class="mejora"><h4>Nombres y rutas sin límite</h4><p>Los nombres de proyectos y secciones y las rutas de archivo ya no tienen límite de longitud: útil con carpetas de proyecto profundas y unidades de red.</p></div>
+      <div class="mejora"><h4>AASHTO LRFD mejorado</h4><p>Aparece por su nombre en la lista de normas. β y θ se obtienen de la deformación longitudinal εx de cada elemento de pared bajo cargas mayoradas (5.7.3.4.2), con opción de fijar el ángulo de las bielas, y el aprovechamiento se calcula frente a φVn.</p></div>
       <div class="mejora"><h4>Esfuerzos M+N desde CEDRUS</h4><p>Los esfuerzos del armado de láminas en plantas acopladas, que considera a la vez momentos y axiles, se pasan a FAGUS para comprobar las secciones en detalle.</p></div>
       <div class="mejora"><h4>Muros con más casos de cálculo</h4><p>El dimensionamiento del armado de muros con FAGUS suma casos en la cabeza y el pie del muro, para estudiar mejor situaciones especiales de carga y conexión.</p></div>
       <div class="mejora"><h4>Y todas las mejoras generales</h4><p>Tablas de resultados a Excel en un clic, informes a medida, CubusExplorer renovado y licencias Sentinel SoftLock. <a href="#todos">Ver mejoras generales</a></p></div>
