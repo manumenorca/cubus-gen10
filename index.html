@@ -258,6 +258,10 @@ blockquote footer{font-size:15px;font-weight:700;color:var(--texto-2)}
 .continua h3{font-size:clamp(24px,3vw,34px);line-height:1.15;font-weight:900}
 .continua p:not(.eyebrow){font-size:clamp(17px,1.7vw,20px);color:var(--texto-2);max-width:60ch}
 
+/* Estabilidad, destacada en Para todos */
+.lista-mejoras.estabilidad{margin-top:28px}
+.estabilidad .mejora{border-top:3px solid var(--indigo)}
+
 /* Ampliar imágenes */
 .zoomable{cursor:zoom-in}
 .zoomable:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
@@ -296,7 +300,7 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <p class="eyebrow">Generación 10 · Llega en 2027</p>
     <h1>Más potencia para calcular estructuras. Y tus modelos de STATIK, escritos en Python.</h1>
-    <p class="lead">La Generación 10 llega a todos los programas Cubus con mejoras para todos, un FAGUS más flexible y con madera frente al fuego, un gran salto en CEDRUS y algo completamente nuevo para STATIK: CubusPy, para crear proyectos completos de STATIK con Python, también con ayuda de la inteligencia artificial. Si tienes ServicePlus, recibes la Generación 10 de tus programas sin coste adicional.</p>
+    <p class="lead">La Generación 10 es la más estable y robusta hasta ahora. Llega a todos los programas Cubus con mejoras para todos, un FAGUS más flexible y con madera frente al fuego, un gran salto en CEDRUS y algo completamente nuevo para STATIK: CubusPy, para crear proyectos completos de STATIK con Python, también con ayuda de la inteligencia artificial. Si tienes ServicePlus, recibes la Generación 10 de tus programas sin coste adicional.</p>
     <div class="acciones">
       <a class="btn primario" href="#cubuspy">Descubre CubusPy</a>
       <a class="btn borde" href="#recibir">Cómo recibirla</a>
@@ -655,8 +659,8 @@ html{scroll-behavior:smooth}
   <div class="wrap">
     <div class="head">
       <p class="eyebrow">Para todos los programas</p>
-      <h2 class="h2">Mejoras que notarás en cada programa</h2>
-      <p class="lead">La base técnica de todos los programas Cubus se ha revisado a fondo. Estas mejoras llegan a todos, sea cual sea tu licencia.</p>
+      <h2 class="h2">La generación más estable y fiable</h2>
+      <p class="lead">Hemos revisado a fondo la base técnica de todos los programas Cubus: arranques y cierres más fiables, tu trabajo protegido si una operación se interrumpe y un funcionamiento estable también en sesiones largas y con modelos muy grandes. Estas mejoras llegan a todos, sea cual sea tu licencia.</p>
       <div class="chips"><span class="chip">CEDRUS</span><span class="chip">STATIK</span><span class="chip">FAGUS</span><span class="chip">LARIX</span><span class="chip">PYRUS</span><span class="chip">AVENA</span></div>
     </div>
 
@@ -664,6 +668,12 @@ html{scroll-behavior:smooth}
       <img src="img/grande/todos-modelos-grandes.jpg" alt="Modelo 3D de un proyecto muy grande con varios edificios en CEDRUS" width="1355" height="984" loading="lazy">
       <figcaption>Fiable en el trabajo diario y con modelos muy grandes</figcaption>
     </figure>
+
+    <div class="lista-mejoras estabilidad">
+      <div class="mejora"><h4>Arranque y cierre más fiables</h4><p>El inicio, el cierre y los procesos comunes a todos los programas funcionan de forma más robusta, también en sesiones largas y al cambiar entre programas.</p></div>
+      <div class="mejora"><h4>Tu trabajo, más protegido</h4><p>Si una operación no puede completarse o se cancela, el modelo queda en un estado coherente.</p></div>
+      <div class="mejora"><h4>Modelos grandes sin sobresaltos</h4><p>Funcionamiento estable y más velocidad en proyectos muy grandes, de la entrada al cálculo y el dimensionamiento.</p></div>
+    </div>
 
     <div class="aviso-todos">
       <h3>¿Trabajas con PYRUS o AVENA? La Generación 10 también es para ti.</h3>
@@ -703,9 +713,6 @@ html{scroll-behavior:smooth}
     </article>
 
     <div class="lista-mejoras">
-      <div class="mejora"><h4>Arranque y cierre más fiables</h4><p>El inicio, el cierre y los procesos comunes a todos los programas funcionan de forma más robusta, también en sesiones largas y al cambiar entre programas.</p></div>
-      <div class="mejora"><h4>Tu trabajo, más protegido</h4><p>Si una operación no puede completarse o se cancela, el modelo queda en un estado coherente.</p></div>
-      <div class="mejora"><h4>Modelos grandes sin sobresaltos</h4><p>Funcionamiento estable y más velocidad en proyectos muy grandes, de la entrada al cálculo y el dimensionamiento.</p></div>
       <div class="mejora"><h4>CubusExplorer renovado</h4><p>Proyectos y cálculos con vista previa, estado y fecha. Crear, copiar, mover, archivar o borrar proyectos es más seguro y muestra su progreso.</p></div>
       <div class="mejora"><h4>Inicio y navegación mejorados</h4><p>Mejores vistas previas al empezar, tablas de resultados más legibles y mejor escalado de las ventanas.</p></div>
       <div class="mejora"><h4>Sentinel SoftLock</h4><p>Licencia por software, vinculada a un equipo físico o virtual. Ideal para servidores y entornos virtualizados, sin puerto USB ni llave.</p></div>
