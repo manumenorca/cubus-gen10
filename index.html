@@ -253,6 +253,11 @@ blockquote footer{font-size:15px;font-weight:700;color:var(--texto-2)}
 .primus-bloque .captura{margin:0}
 .primus-bloque .testimonio{margin-top:40px}
 
+/* Una generación en marcha */
+.continua{margin:64px auto 0;max-width:720px;text-align:center;padding-top:48px;border-top:1px solid var(--linea);display:flex;flex-direction:column;align-items:center;gap:12px}
+.continua h3{font-size:clamp(24px,3vw,34px);line-height:1.15;font-weight:900}
+.continua p:not(.eyebrow){font-size:clamp(17px,1.7vw,20px);color:var(--texto-2);max-width:60ch}
+
 /* Ampliar imágenes */
 .zoomable{cursor:zoom-in}
 .zoomable:focus-visible{outline:3px solid var(--rosa);outline-offset:3px}
@@ -830,6 +835,12 @@ html{scroll-behavior:smooth}
     <div class="prog-nota">
       <p><strong>PYRUS y AVENA</strong> reciben todas las mejoras generales de la Generación 10: fiabilidad, exportación a Excel, informes, CubusExplorer y licencias.</p>
       <a class="btn borde" href="#todos">Ver mejoras generales</a>
+    </div>
+
+    <div class="continua" id="continua">
+      <p class="eyebrow">Una generación en marcha</p>
+      <h3>Y esto es solo el principio</h3>
+      <p>La Generación 10 seguirá creciendo. En los próximos meses iremos completando estas funcionalidades y añadiendo otras nuevas, y te iremos informando de cada novedad.</p>
     </div>
   </div>
 </section>
